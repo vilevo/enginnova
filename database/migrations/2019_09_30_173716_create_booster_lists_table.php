@@ -20,7 +20,6 @@ class CreateBoosterListsTable extends Migration
             $table->integer('type_forfait');
             $table->integer('unite');
             $table->date('fin');
-            $table->date('fin');
             $table->boolean('actif');
             $table->timestamps();
         });
