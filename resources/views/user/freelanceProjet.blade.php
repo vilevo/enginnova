@@ -71,7 +71,7 @@
                             <!-- /.box-header -->
                             <div class="box-body">
                               <!-- post text -->
-                              <p><?php echo substr($freelance_projet->contenu, 0,145); ?>...</p>
+                              <p><?php echo $freelance_projet->contenu; ?></p>
                               <!-- Social sharing buttons -->
                               <button type="button" class="btn btn-default btn-xs"><i class="fa fa-share"></i> Share</button>
                               <button type="button" class="btn btn-default btn-xs"><i class="fa fa-users"></i> <b>{{$freelance_projet->reponses}} Interessés</b></button>

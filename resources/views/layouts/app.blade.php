@@ -301,7 +301,7 @@
               var observation = $("[name='observation']:checked").val();
               event.preventDefault();
               $.ajax({
-                  url:"http://localhost/ec/public/user/noter-participant",
+                  url:"http://fierce-savannah-14675.herokuapp.com/user/noter-participant",
                   method:"POST",
                   data:{observation:observation, id:id, idw:idw, _token:_token},
                   success:function(data){
@@ -342,7 +342,7 @@
               if (query != '') {
                   var _token = $('input[name="_token"]').val();
                   $.ajax({
-                    url:"http://localhost/ec/public/user/fetch",
+                    url:"http://fierce-savannah-14675.herokuapp.com/user/fetch",
                     method:"POST",
                     data:{query:query, _token:_token},
                     success:function(data){

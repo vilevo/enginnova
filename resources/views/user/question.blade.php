@@ -63,7 +63,7 @@
                             <!-- /.box-header -->
                             <div class="box-body">
                               <!-- post text -->
-                              <p><?php echo substr($post->contenu, 0,145); ?>...</p>
+                              <p><?php echo $post->contenu; ?></p>
                               <!-- Social sharing buttons -->
                               <button type="button" class="btn btn-default btn-xs"><i class="fa fa-share"></i> Share</button>
                               <button type="button" class="btn btn-default btn-xs"><i class="fa fa-comments-o"></i> <b>{{$post->counts_commentaires}} Réponses</b></button>
