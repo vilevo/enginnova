@@ -1,4 +1,36 @@
-INSERT INTO gestion_slides(titre_1,titre_2,contenu,image) 
-VALUES ('Bienvenu sur Enginnova Community','On vous aide à apprendre','<p>Enginnova Learning Program est un programme de formation &agrave; travers des cours certifiants&nbsp; pour accro&icirc;tre le nombre de technologues et fabriquer les ing&eacute;nieurs et d&eacute;veloppeurs <strong>innovants</strong>.</p>','slider1.png'),
-		('Des formations pour tous', 'Quelque soit votre niveau','Eh oui plus dexcuse pour débuter, vous avez la possibilité dacceder à nos formations quelque soit votre niveau grace aux modules : Learn 2 code from scratch pour les débutant et Learning program pro pour les pro.','slider2.png'),
-		('Freelance gagnez de largent en ligne', 'Participez aux projets freelance', 'Vous avez la possibilité de gagner de argent en participant aux projets freelance qui sont régulierment poster sur la platforme pour vous faire des sous. Ou aussi mettre ligne vos propres projets.', 'slider3.png');
+INSERT INTO booster_forfaits (name) 
+VALUES ('une semaine'),
+	('deux semaines');
+
+INSERT INTO categories (name) 
+VALUES ('developpement web'),
+('developpement mobil'),
+('maths'),
+('genie civil'),
+('graphisme'),
+('devops'),
+('chimie'),
+('physique'),
+('bureautique'),
+('finance');
+
+INSERT INTO observations (name,valeur) 
+VALUES ('super bon', 10),
+('bon', 9,),
+('assez bien', 7,),
+('passable', 5,),
+('insuffisent', 3,);
+
+INSERT INTO professions (name) 
+VALUES ('etudiant'),
+('entrepreneur');
+
+INSERT INTO gestion_activites (titre,contenu,photo) 
+VALUES ('test numéro 1', '<p>Vivre l&rsquo;exp&eacute;rience start-up ! Le cursus et l&rsquo;environnement de Enginnova offrent des opportunit&eacute;s de rencontres et d&rsquo;&eacute;changes qui permettent d&rsquo;&eacute;largir son r&eacute;seau, de stimuler la cr&eacute;ativit&eacute; et l&rsquo;innovation.</p>', '1572271845.jpeg'),
+('teste numéro 2', '<p>Vivre l&rsquo;exp&eacute;rience start-up ! Le cursus et l&rsquo;environnement de Enginnova offrent des opportunit&eacute;s de rencontres et d&rsquo;&eacute;changes qui permettent d&rsquo;&eacute;largir son r&eacute;seau, de stimuler la cr&eacute;ativit&eacute; et l&rsquo;innovation.</p>', '1573115226.jpeg'),
+('test numéro 3', '<p>Vivre l&rsquo;exp&eacute;rience start-up ! Le cursus et l&rsquo;environnement de Enginnova offrent des opportunit&eacute;s de rencontres et d&rsquo;&eacute;changes qui permettent d&rsquo;&eacute;largir son r&eacute;seau, de stimuler la cr&eacute;ativit&eacute; et l&rsquo;innovation.</p>', '1573115275.jpeg'),
+('test numéro 4', '<p>Vivre l&rsquo;exp&eacute;rience start-up ! Le cursus et l&rsquo;environnement de Enginnova offrent des opportunit&eacute;s de rencontres et d&rsquo;&eacute;changes qui permettent d&rsquo;&eacute;largir son r&eacute;seau, de stimuler la cr&eacute;ativit&eacute; et l&rsquo;innovation.</p>', '1573115322.jpeg'),
+('test numéro 5', '<p>Vivre l&rsquo;exp&eacute;rience start-up ! Le cursus et l&rsquo;environnement de Enginnova offrent des opportunit&eacute;s de rencontres et d&rsquo;&eacute;changes qui permettent d&rsquo;&eacute;largir son r&eacute;seau, de stimuler la cr&eacute;ativit&eacute; et l&rsquo;innovation.</p>', '1573115351.jpeg');
+
+INSERT INTO astuces (titre,contenu,photo) 
+VALUES ('astuce num 1', '<p>D&eacute;taill&eacute; l&#39;astuce ici...&nbsp;D&eacute;taill&eacute; l&#39;astuce ici&nbsp;D&eacute;taill&eacute; l&#39;astuce ici&nbsp;D&eacute;taill&eacute; l&#39;astuce ici</p><p>D&eacute;taill&eacute; l&#39;astuce ici&nbsp;D&eacute;taill&eacute; l&#39;astuce ici&nbsp;D&eacute;taill&eacute; l&#39;astuce ici&nbsp;D&eacute;taill&eacute; l&#39;astuce ici...</p>', '1572780080.jpg');
