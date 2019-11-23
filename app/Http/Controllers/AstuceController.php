@@ -23,7 +23,7 @@ class AstuceController extends Controller
 
     public function show($id){
          $best_projets = "";
-    	if (Astuce::select('id',$id)->count() == 1) {
+    	if (Astuce::select('id')->where('id',$id)->count() == 1) {
             $projets = BoosterList::join('freelance_projets','freelance_projets.id_fprojet','=','booster_lists.id_fprojet')->count();
             if ($projets>0) {
               $best_projets = BoosterList::join('freelance_projets','freelance_projets.id_fprojet','=','booster_lists.id_fprojet')
