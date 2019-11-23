@@ -1,5 +1,4 @@
-INSERT INTO roles(name) 
-VALUES ('admin');
-
-INSERT INTO role_user(role_id,user_id) 
-VALUES (1, 1);
+INSERT INTO gestion_slides(titre_1,titre_2,contenu,image) 
+VALUES ('Bienvenu sur Enginnova Community','On vous aide à apprendre','<p>Enginnova Learning Program est un programme de formation &agrave; travers des cours certifiants&nbsp; pour accro&icirc;tre le nombre de technologues et fabriquer les ing&eacute;nieurs et d&eacute;veloppeurs <strong>innovants</strong>.</p>','slider1.png'),
+		('Des formations pour tous', 'Quelque soit votre niveau','Eh oui plus d\'excuse pour débuter, vous avez la possibilité d\'acceder à nos formations quelque soit votre niveau grace aux modules : Learn 2 code from scratch pour les débutant et Learning program pro pour les pro.','slider2.png'),
+		('Freelance gagnez de l\'argent en ligne', 'Participez aux projets freelance', 'Vous avez la possibilité de gagner de l\'argent en participant aux projets freelance qui sont régulierment poster sur la platforme pour vous faire des sous. Ou aussi mettre ligne vos propres projets.', 'slider3.png');
