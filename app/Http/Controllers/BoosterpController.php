@@ -75,8 +75,8 @@ class BoosterpController extends Controller
 			   		}elseif ($boost_list->type_forfait == 2) {
 			   			$boost_list->unite = 2;
 			   		}
-			   		$boost_list->debut = NOW();
-			   		$boost_list->fin = NOW();
+			   		$boost_list->debut = "2019-10-07";
+			   		$boost_list->fin = "2019-10-07";
 			   		$boost_list->actif = false;
 			   		if ($booster_projet->save() && $boost_list->save()) {
 			   			 $x = $id*1000;
