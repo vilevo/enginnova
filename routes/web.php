@@ -121,3 +121,4 @@ Route::post('user/add-teamplanning/{id}', 'TeamplanningController@planningAdd')-
 Route::post('user/add-observation/{idu}/{idw}', 'ObservationController@create')->where(['idu','[0-9]+'],['idw','[0-9]+']);
 Route::post('/user/noter-participant', 'ObservationController@update');
 
+
