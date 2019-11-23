@@ -49,7 +49,7 @@
                         <div class="cv">
                         	<h3>Les CV</h3>
                         	@if($new_cvs>0)
-                        		<h4>Total CV : {{count($new_cvs)}}</h4>
+                        		<h4>Total CV : {{$new_cvs}}</h4>
                         		<h5 class="label label-primary"><a href="{{url('admin/cv-inactif')}}" style="color: white;">Total CV à traiter</a> : {{$new_cvs}}</h5>
                         	@else
                         	<h4 class="label label-warning">Vide</h4>
