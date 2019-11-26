@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
   <head>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -277,12 +279,13 @@
   <script src='{{asset("elp_files/assets/js/custom.js")}}'></script>
    <!-- Social Share -->
   <script src='{{asset("elp_files/assets/js/socialShare.js")}}'></script>
+  <script src="{{ asset('js/app.js') }}"></script>
   <!-- CK Editor -->
   <script src='{{asset("ckeditor/ckeditor.js")}}'></script>
   <!-- fullcalendar -->
   <script src='{{asset("fullcalendar/moment.js")}}'></script>
   <script src='{{asset("fullcalendar/fullcalendar.min.js")}}'></script>
-  @yield('fullcalendar');
+  @yield('fullcalendar')
   <script>
     $(function () {
       // Replace the <textarea id="editor1"> with a CKEditor

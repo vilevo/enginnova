@@ -100,7 +100,7 @@ class WorkspaceController extends Controller
     								->orderBy('users.name','asc')
     								->get();
     		}
-    		return view('user.workspace',[
+    		return view('user.workSpace',[
     			'workspace' => $workspace,
     			'chats' => $chats,
     			'id_workspace' => $id_workspace,
