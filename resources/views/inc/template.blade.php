@@ -122,8 +122,8 @@
                 <li><a href="{{ url('freelance') }}">Freelance</a></li>                
               </ul>
             </li>
-            <li><a href="{{ route('login') }}">Se connecter</a></li>
-            <li><a href="{{ route('register') }}">S'inscrire</a></li>            
+            <li><a href="{{ route('login') }}"><span class="label label-primary"><i class="fa fa-sign-in"></i> Connexion</span></a></li>
+            <!-- <li><a href="{{ route('register') }}">S'inscrire</a></li> -->            
             <li><a href="{{ url('contact') }}">Contact</a></li>
           </ul>                     
         </div><!--/.nav-collapse -->        
@@ -164,17 +164,17 @@
               <div class="mu-footer-widget">
                 <h4>Information</h4>
                 <ul>
-                  <li><a href="#">A propos</a></li>
-                  <li><a href="">Formations</a></li>
-                  <li><a href="">Term Of Use</a></li>
+                  <li><a href="{{url('a-propos')}}">A propos</a></li>
+                  <li><a href="{{url('learn-to-code-from-scratch')}}">Formations</a></li>
+                  <li><a href="{{url('terme-et-condition')}}">Termes et conditions d'utilisations</a></li>
                 </ul>
               </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-3">
               <div class="mu-footer-widget">
-                <h4>Student Help</h4>
+                <h4>Enginnova community</h4>
                 <ul>
-                  <li><a href="">Débutez</a></li>
+                  <li><a href="{{ route('login') }}">Débutez</a></li>
                   <li><a href="#">Aide</a></li>                  
                 </ul>
               </div>
@@ -256,6 +256,24 @@
                     success:function(data){
                       $('#questions_list').fadeIn();
                       $('#questions_list').html(data);
+                    }
+                  });
+              }
+          });
+    });
+
+    $(document).ready(function(){
+      $('#enguser_name').keyup(function(){
+              var query = $(this).val();
+              if (query != '') {
+                  var _token = $('input[name="_token"]').val();
+                  $.ajax({
+                    url:"http://localhost/ec/public/fetchUser",
+                    method:"POST",
+                    data:{query:query, _token:_token},
+                    success:function(data){
+                      $('#users_list').fadeIn();
+                      $('#users_list').html(data);
                     }
                   });
               }

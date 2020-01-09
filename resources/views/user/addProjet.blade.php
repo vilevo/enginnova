@@ -22,11 +22,11 @@ Freelance - publier un projet
 @section('layout_main_content')
    <div class="container">
      <div class="row">
-      <div class="col-md-3"></div>
+      <div class="col-md-1"></div>
       <!-- start form -->
        <div class="col-md-6">
         <div class="panel panel-default">
-          <div class="panel-heading" style="background-color: #ffffff;"><h3>Nouveau Projet</h3></div>
+          <div class="panel-heading" style="background-color: #ffffff;"><h3>Nouveau Projet Freelance</h3></div>
           <div class="panel-body">
             <h3>Quel est le titre de votre projet?</h3>
               <h5>Le choix d'un bon titre est très important car elle permet d'avoir beaucoup de candidature.</h5>
@@ -84,7 +84,15 @@ Freelance - publier un projet
         </div>
           
       </div>
-            <div class="col-md-3"></div>      
+            <div class="col-md-5">
+              <div id="benevola" class="alert alert-warning">
+                <h4>Projet Bénévolat</h4>
+                <img src='{{asset("elp_files/assets/img/pic/happy.jpg")}}' height="200" width="600" class="img-responsive">
+                <div id="benevola_desc" style="margin-top: 10px;">
+                  <p>Allez sauter de joie! Plus de soucis à se faire avec l'instauration des projets bénévolats par enginnova.<br> Vous avez un projet mais pas les fonds les neccessaires pour le démarré? Enginnova vous aide à former votre équipe gratuitement <i class="fa fa-hand-peace-o" style="color: green;"></i> .<span class="pull-right"> <a href="{{ url('user/add-projet-benevolat') }}" class="btn btn-primary"><i class="fa fa-long-arrow-right"></i> Démarrer un projet benevola</a></span></p>
+                </div>
+              </div>
+            </div>      
        </div>
        <!-- end form -->
      </div>

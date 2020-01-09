@@ -64,6 +64,7 @@ class PostController extends Controller
                                     ->orderBy('id','desc')->paginate(4);
             }
             $categories = Categorie::all();
+            $users = User::all();
             if (Astuce::select('id')->count() > 0) {
              $astuces = Astuce::paginate(2);
             }
@@ -72,7 +73,8 @@ class PostController extends Controller
              'posts'=>$posts,
              'categories'=>$categories,
              'best_projets'=>$best_projets,
-             'astuces'=>$astuces
+             'astuces'=>$astuces,
+             'users'=>$users
              ]);
         }else{
           return view('user.error',
@@ -175,8 +177,7 @@ class PostController extends Controller
              if ($check_questions>0) {
                   $questions_similaires = Post::where('id_categorie',$cat)
                                           ->paginate(5);
-             }
-
+             } 
               $check_note = Note::count();
               if ($check_note>0) {
                  $notes = Note::all();

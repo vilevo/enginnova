@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('titre')
-  {{ Auth::user()->name }}
+  {{ $user->name }}
 @endsection
 
 @section('header')

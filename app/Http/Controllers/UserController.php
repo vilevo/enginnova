@@ -225,4 +225,28 @@ class UserController extends Controller
    		
     }
 
+    public function AdminFetchUser(Request $request)
+    {
+        if ($request->get('query')) {
+            $query = $request->get('query');
+            $data = DB::table('users')
+                        ->where('name','LIKE','%'.$query.'%')
+                        ->get();
+            $output = '<ul class="dropdown-menu" style="display:block; position:relative;">';
+            foreach ($data as $row) {
+                $output .= '<li><a href="http://localhost/ec/public/admin/edit-user/'.$row->id.'">'.$row->name.'</a></li>';
+            }
+            $output .='</ul>';
+            echo $output;
+        }
+    }
+
+    public function admin_edit_user($id){
+        $user = User::select('id')->where('id', $id)->count();
+        if ($user==1) {
+            $user = User::where('id',$id)->first();
+            return view('admin.editUser',['user'=>$user]);
+        }
+    }
+
 }

@@ -15,6 +15,7 @@ use App\BoosterForfait;
 use App\GestionSlide;
 use App\GestionActivite;
 use App\Astuce;
+use App\Mentor;
 
 class VisiteurController extends Controller
 {
@@ -25,6 +26,7 @@ class VisiteurController extends Controller
       $check_activite = GestionActivite::select('id')->count();
       $questions = Post::select('id_post')->count();
       $users = User::select('id')->count();
+      $mentors = Mentor::select('id')->count();
       $projets_freelances = FreelanceProjet::select('id_fprojet')->count();
       if ($check_slide>0) {
         $slides = GestionSlide::all();
@@ -37,6 +39,7 @@ class VisiteurController extends Controller
         'activites'=>$activites,
         'questions'=>$questions,
         'users'=>$users,
+        'mentors'=>$mentors,
         'projets_freelances'=>$projets_freelances
       ]);
     }
@@ -45,6 +48,7 @@ class VisiteurController extends Controller
     	 $check = Post::all()->count();
 	        $best_projets = "";
           $astuces = "";
+          $users = User::all();
 	        $posts= Post::join('users','users.id','=','posts.id_user')
 	            ->select(
 	            	'posts.id_post',
@@ -81,7 +85,8 @@ class VisiteurController extends Controller
 	             'posts'=>$posts,
 	             'categories'=>$categories,
 	             'best_projets'=>$best_projets,
-               'astuces'=>$astuces
+               'astuces'=>$astuces,
+               'users'=>$users
 	             ]);
 	        }else{
 	          return view('visiteurs.error',
@@ -141,7 +146,6 @@ class VisiteurController extends Controller
                   $questions_similaires = Post::where('id_categorie',$cat)
                                           ->paginate(5);
              }
-
               $check_note = Note::count();
               if ($check_note>0) {
                  $notes = Note::all();
@@ -197,6 +201,7 @@ class VisiteurController extends Controller
                 'freelance_projets.etat',
                 'freelance_projets.categorie',
                 'freelance_projets.prix',
+                'freelance_projets.type',
                 'freelance_projets.created_at',
                 'users.name',
                 'users.avatar'
@@ -253,7 +258,8 @@ class VisiteurController extends Controller
             	'freelance_projets.reponses',
             	'freelance_projets.etat',
             	'freelance_projets.categorie',
-                'freelance_projets.prix',
+              'freelance_projets.prix',
+              'freelance_projets.type',
             	'freelance_projets.created_at',
             	'users.id',
             	'users.name',
@@ -337,6 +343,23 @@ class VisiteurController extends Controller
         }
     }
 
+    public function fetchUser(Request $request)
+    {
+        if ($request->get('query')) {
+            $query = $request->get('query');
+            $data = DB::table('users')
+                        ->where('name','LIKE','%'.$query.'%')
+                        ->get();
+            $output = '<ul class="dropdown-menu" style="display:block; position:relative;">';
+            foreach ($data as $row) {
+                $row->id_user = $row->id*1000;
+                $output .= '<li><a href="http://localhost/ec/public/profil/'.$row->id_user.'">'.$row->name.'</a></li>';
+            }
+            $output .='</ul>';
+            echo $output;
+        }
+    }
+
     public function formationAdd($type){
       if ($type == "learn-to-code-from-scratch") {
         return view('visiteurs.inscriptionLearn2CodeFromScratch');
@@ -407,5 +430,11 @@ class VisiteurController extends Controller
            'message' => 'Oups une erreur s\'est produite veuillez réessayer SVP!'
           ]);
       }
+    }
+
+    public function userList()
+    {
+      $users = User::paginate(10);
+      return view('visiteurs.usersEnginnova',['users'=>$users]);
     }
 }

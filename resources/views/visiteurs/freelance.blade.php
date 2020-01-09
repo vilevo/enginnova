@@ -57,7 +57,13 @@
                               <div class="user-block">
                                 <?php $id_fprojet=$freelance_projet->id_fprojet*1000; ?>
                                 <img class="img-circle" src='{{ asset("avatars/{$freelance_projet->avatar}") }}' width="50" height="50" alt="User profile picture" alt="User Image">
-                                <span style="font-size: 16px; font-weight: 600;"><a href='{{ url("freelance-projet/{$id_fprojet}") }}'>{{$freelance_projet->titre_projet}}</a></span><br>
+                                <span style="font-size: 16px; font-weight: 600;"><a href='{{ url("freelance-projet/{$id_fprojet}") }}'>
+                                  @if($freelance_projet->type=="benevolat")
+                                    {{$freelance_projet->titre_projet}} <span class="label label-info">[bénévolat]</span>
+                                  @else
+                                    {{$freelance_projet->titre_projet}} 
+                                  @endif
+                                </a></span><br>
                                 <span style="color: #999; font-size: 13px;">Posté le - {{date('d F Y',strtotime($freelance_projet->created_at))}}</span>
                               </div>
                             </div>
@@ -100,7 +106,7 @@
                           <div class="media">
                                <?php $id_fprojet=$best_projet->id_fprojet*1000; ?>
                                 <div class="media-body">
-                                  <h4 class="media-heading"><a href='{{ url("user/freelance-projet/{$id_fprojet}") }}' style="color: #337AB7; font-weight: bold; font-size: 0.8em;">{{$best_projet->titre_projet}}</a></h4>                      
+                                  <h4 class="media-heading"><a href='{{ url("user/freelance-projet/{$id_fprojet}") }}' style="color: #337AB7; font-weight: bold; font-size: 0.8em;"><span class="label label-warning">[Freelance]</span> {{$best_projet->titre_projet}}</a></h4>                      
                                   <h6 style="color: gray;"><em><b>{{$best_projet->prix}}</b></em></h6>
                                 </div>
                           </div>

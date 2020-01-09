@@ -46,6 +46,7 @@ class FreelanceController extends Controller
                 'freelance_projets.etat',
                 'freelance_projets.categorie',
                 'freelance_projets.prix',
+                'freelance_projets.type',
                 'freelance_projets.created_at',
                 'users.name',
                 'users.avatar'
@@ -111,6 +112,7 @@ class FreelanceController extends Controller
    		$freelance_projet->categorie = $request->input('categorie');
         $freelance_projet->actif = false;
         $freelance_projet->booster = 0;
+        $freelance_projet->type = "freelance";
         if ($freelance_projet->save()) {
             return redirect('user/freelance')->with('info', 'Votre projet a été enregistré avec succés! Notre équipe est entrain de l\'étudier. La confirmation vous sera envoyée d\'ici 48h par mail merci.');
         }
@@ -152,13 +154,15 @@ class FreelanceController extends Controller
             	'freelance_projets.etat',
             	'freelance_projets.categorie',
                 'freelance_projets.prix',
+                'freelance_projets.type',
             	'freelance_projets.created_at',
             	'users.id',
             	'users.name',
             	'users.avatar'
             	)->where(
             		'freelance_projets.id_fprojet',$id
-            	)->first();
+            	)
+                ->first();
 
        		 $manifestations=DB::table('manifestations')
         	->select(
@@ -181,7 +185,7 @@ class FreelanceController extends Controller
                  $projets_similaires = FreelanceProjet::where('categorie',$cat)
                                           ->where('actif',true)
                                           ->paginate(5); 
-             }  
+             }    
             $forfaits = BoosterForfait::all();
             $projets = BoosterList::join('freelance_projets','freelance_projets.id_fprojet','=','booster_lists.id_fprojet')->count();
             if ($projets>0) {

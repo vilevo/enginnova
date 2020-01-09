@@ -112,13 +112,13 @@
                 <li><a href="{{ url('admin/slider-acceuil') }}">Slider acceuil</a></li>
                 <li><a href="{{ url('admin/new-activite') }}">Activités acceuil</a></li>
                 <li><a href="{{ url('admin/trucs-astuces') }}">Trucs et astuces</a></li>
+                <li><a href="{{ url('admin/gestion-mentor') }}">Gestion mentors</a></li>
               </ul>
             </li>           
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Utilisateurs <span class="fa fa-angle-down"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="{{ url('admin/traite-users') }}">Traité users</a></li>                
-                <li><a href="{{ url('user/freelance') }}">Traité users admin</a></li>                
+                <li><a href="{{ url('admin/traite-users') }}">Traité users</a></li>               
               </ul>
             </li>
             <li><a href="#" id="mu-search-icon"><i class="fa fa-search"></i></a></li>
@@ -268,7 +268,40 @@
       // instance, using default configuration.
       CKEDITOR.replace('editor1')
     });
+    $(document).on('click', '#select_mentor', function(){
+      var id = $(this).data("id");
+      if (id != '') {
+                var url = "http://localhost/ec/public/fetch-mentor/"+id;
+                $.get(url, function(data){
+                    $('#mentor_avt').empty();
+                    $('#mentorModal').modal('show');
+                    $('#mentor_avt').append('<img class="img-thumbnail img-responsive" height="150" width="150" src="http://localhost/ec/public/avatars/'+data.avatar+'">');
+                    $('#nom').html(data.nom);
+                    $('#profession').html(data.profession);
+                    $('#mentor_desc').html(data.about);
+                });
+              }
+    });
+
+    $(document).ready(function(){
+      $('#search_user').keyup(function(){
+              var query = $(this).val();
+              if (query != '') {
+                  var _token = $('input[name="_token"]').val();
+                  $.ajax({
+                    url:"http://localhost/ec/public/admin/fetch-user",
+                    method:"POST",
+                    data:{query:query, _token:_token},
+                    success:function(data){
+                      $('#users_list').fadeIn();
+                      $('#users_list').html(data);
+                    }
+                  });
+              }
+          });
+    });
   </script>
   @yield('footer')
+  @yield('formulaire')
   </body>
 </html>

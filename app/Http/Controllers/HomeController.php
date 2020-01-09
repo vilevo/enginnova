@@ -49,6 +49,7 @@ class HomeController extends Controller
                                         ->where('valider',false)
                                         ->count();
         $categories = Categorie::all();
+        $users = User::all();
         if ($check_cv == 0) {
             $notif_cv = "Veuillez mettre en ligne votre CV pour pouvoir postuler aux projets freelance.";
             $user_id = $user_id*1000;
@@ -122,8 +123,9 @@ class HomeController extends Controller
             'user_projets'=>$user_projets,
             'forfaits'=>$forfaits,
             'notif_selections'=>$notif_selections,
-            'wp_projets' => $wp_projets,
-            'astuces' => $astuces
+            'wp_projets'=>$wp_projets,
+            'astuces'=>$astuces,
+            'users'=>$users
         ]);
     }
 
@@ -154,6 +156,12 @@ class HomeController extends Controller
     {   
         $categories = Categorie::all();
         return view('user.addProjet', ['categories'=>$categories]);
+    }
+
+    public function add_projet_benevolat()
+    {   
+        $categories = Categorie::all();
+        return view('user.addProjetBenevolat', ['categories'=>$categories]);
     }
 
 }

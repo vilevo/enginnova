@@ -1,11 +1,7 @@
-@extends('inc.template')
+@extends('inc.index_template')
 
 @section('titre')
 	Enginnova Learning Program - acceuil
-@endsection
-
-@section('header')
-
 @endsection
 
 @section('layout_main_content')
@@ -18,7 +14,7 @@
         <div class="mu-slider-single">
           <div class="mu-slider-img">
             <figure>
-              <img src='{{asset("elp_files/assets/img/slider/$slide->image")}}' class="img-responsive" alt="img">
+              <img src='{{asset("elp_files/assets/img/slider/$slide->image")}}'  alt="img">
             </figure>
           </div>
           <div class="mu-slider-content">
@@ -26,7 +22,7 @@
             <span></span>
             <h2>{{$slide->titre_2}}</h2>
             <p><?php echo $slide->contenu; ?></p>
-            <a href="#" class="mu-read-more-btn">S'inscrire</a>
+            <a href="{{ route('register') }}" class="mu-read-more-btn">S'inscrire</a>
           </div>
         </div>
         <!-- Start single slider item -->
@@ -43,22 +39,22 @@
             <!-- Start single service -->
             <div class="mu-service-single">
               <span class="fa fa-money"></span>
-              <h3>Gagnez de l'Argent</h3>
+              <h3><a href="{{url('freelance')}}" style="color: white;">Gagnez de l'Argent</a></h3>
               <p>Participez aux projets freelance ou mettez en ligne vos propres projets.</p>
             </div>
             <!-- Start single service -->
             <!-- Start single service -->
             <div class="mu-service-single">
               <span class="fa fa-users"></span>
-              <h3>Prof Experimentés</h3>
-              <p>Nos professeurs sont expérimentés, attentifs de tous les horizons.</p>
+              <h3><a href="{{ url('enginnova-community') }}" style="color: white;">La Communauté</a></h3>
+              <p>Elargissez et partagez vos connaissances avec nous.</p>
             </div>
             <!-- Start single service -->
             <!-- Start single service -->
             <div class="mu-service-single">
               <span class="fa fa-book"></span>
-              <h3>Best Formations</h3>
-              <p>Bénéficiez des meilleurs cours pour vos projets.</p>
+              <h3><a href="{{url('learn-to-code-from-scratch')}}" style="color: white;">Best Formations</a></h3>
+              <p>Bénéficiez des meilleurs formations dans le numérique.</p>
             </div>
             <!-- Start single service -->
           </div>
@@ -118,7 +114,7 @@
                 <div class="mu-abtus-counter-single">
                   <span class="fa fa-book"></span>
                   <h4 class="counter">{{$questions}}</h4>
-                  <p>Questions</p>
+                  <p><a href="{{ url('enginnova-community') }}" style="color: white;">Questions</a></p>
                 </div>
               </div>
               <!-- End counter item -->
@@ -127,7 +123,7 @@
                 <div class="mu-abtus-counter-single">
                   <span class="fa fa-users"></span>
                   <h4 class="counter">{{$users}}</h4>
-                  <p>Utilisateurs</p>
+                  <p><a href="{{ url('enginnova-users') }}" style="color: white;">Utilisateurs</a></p>
                 </div>
               </div>
               <!-- End counter item -->
@@ -136,7 +132,7 @@
                 <div class="mu-abtus-counter-single">
                   <span class="fa fa-sticky-note"></span>
                   <h4 class="counter">{{$projets_freelances}}</h4>
-                  <p>Projets</p>
+                  <p><a href="{{ url('freelance') }}" style="color: white;">Projets</a></p>
                 </div>
               </div>
               <!-- End counter item -->
@@ -144,8 +140,8 @@
               <div class="col-lg-3 col-md-3 col-sm-3">
                 <div class="mu-abtus-counter-single no-border">
                   <span class="fa fa-user-secret"></span>
-                  <h4 class="counter">50</h4>
-                  <p>Mentors</p>
+                  <h4 class="counter">{{$mentors}}</h4>
+                  <p><a href="{{ url('enginnova-mentors') }}" style="color: white;">Mentors</a></p>
                 </div>
               </div>
               <!-- End counter item -->
@@ -176,7 +172,7 @@
                   <div class="mu-single-feature">
                     <span class="fa fa-users"></span>
                     <h4>Environnement</h4>
-                    <p>Vivre l’expérience start-up ! Le cursus et l’environnement de Enginnova offrent des opportunités de rencontres et d’échanges qui permettent d’élargir son réseau, de stimuler la créativité et l’innovation.</p>
+                    <p>Vivre l’expérience start-up! l’environnement de Enginnova offrent des opportunités de rencontres et d’échanges qui permettent d’élargir son réseau et de stimuler la créativité.</p>
                     <a href="#">Read More</a>
                   </div>
                 </div>
@@ -192,31 +188,31 @@
                   <div class="mu-single-feature">
                     <span class="fa fa-history"></span>
                     <h4>La formation</h4>
-                    <p>D’une durée de 80 heures (21 jours), la formation est découpée en  modules complémentaires. Les 3 dernières semaines de formation sont allouées à la réalisation d’un projet réel permettant de consolider les apprentissages et outils enseignés pendant le cursus.</p>
+                    <p>Les formations ont une duré de 80 heures (21 jours). Les 3 dernières semaines de formation sont allouées à la réalisation d’un projet réel pour booster l'apprentissage.</p>
                     <a href="#">Read More</a>
                   </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
                   <div class="mu-single-feature">
                     <span class="fa fa-laptop"></span>
-                    <h4>Cours en ligne</h4>
-                    <p>Vu que nos cours sont très pratique, juste 30% sont faits en ligne.</p>
+                    <h4>Projets freelance</h4>
+                    <p>Il est possible de mettre en ligne vos projets enfin de trouvez une main d'oeuvre compétente de bonne qualité sur notre plateforme pour les réalisés.</p>
                     <a href="#">Read More</a>
                   </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
                   <div class="mu-single-feature">
-                    <span class="fa fa-flask"></span>
-                    <h4>Cours pratiques</h4>
-                    <p>Après a théorie en ligne, la pratique se fait dans nos locaux avec les autres apprenants.</p>
+                    <span class="fa fa-laptop"></span>
+                    <h4>Projets benevolats</h4>
+                    <p>Vous avez la possiblité de mettre en ligne des projets benevolats au cas vous n'auriez pas les ressources neccessaires pour débuter votre projet.</p>
                     <a href="#">Read More</a>
                   </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
                   <div class="mu-single-feature">
-                    <span class="fa fa-certificate"></span>
-                    <h4>Attestation</h4>
-                    <p>Après la fin votre formation, vous recevrez une attestion pour servir et valoir ce que de droit.</p>
+                    <span class="fa fa-users"></span>
+                    <h4>Enginnova community</h4>
+                    <p>Vous avez une inquiétude? peu importe le domaine, publiez votre question sur la plateforme et vous aurez des réponses satisfaisantes.</p>
                     <a href="#">Read More</a>
                   </div>
                 </div>
@@ -305,7 +301,7 @@
                     <div class="mu-ourteacher-single-content">
                       <h4>Joel AGBOGLO</h4>
                       <span>CEO</span>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique quod pariatur recusandae odio dignissimos. Eligendi.</p>
+                      <p>Fondateur et Responsable du departement des IOT</p>
                     </div>
                   </div>
                 </div>
@@ -323,7 +319,7 @@
                     <div class="mu-ourteacher-single-content">
                       <h4>Hilario HOUMEY</h4>
                       <span>CTO</span>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique quod pariatur recusandae odio dignissimos. Eligendi.</p>
+                      <p>Responsable du departement technologique</p>
                     </div>
                   </div>
                 </div>
@@ -341,7 +337,7 @@
                     <div class="mu-ourteacher-single-content">
                       <h4>Israel AZAMETI</h4>
                       <span>COO</span>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique quod pariatur recusandae odio dignissimos. Eligendi.</p>
+                      <p>Responsable management et ressources humaines</p>
                     </div>
                   </div>
                 </div>
@@ -358,8 +354,8 @@
                     </figure>
                     <div class="mu-ourteacher-single-content">
                       <h4>Maia HOUMEY</h4>
-                      <span>RelationShip Manager</span>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique quod pariatur recusandae odio dignissimos. Eligendi.</p>
+                      <span>Secretaire general</span>
+                      <p>Porte parole et responsable relationship</p>
                     </div>
                   </div>
                 </div>
@@ -384,15 +380,15 @@
               <div class="mu-testimonial-item">
                 <div class="mu-testimonial-quote">
                   <blockquote>
-                    <p>grace à la formation de enginnova, j'ai pu developper mon aplication mobile en 3 jours adipisicing elit. Voluptatem rerum. Voluptatem rerum.</p>
+                    <p>grace à la formation de enginnova, j'ai pu developper mon aplication mobile en 3 jours.</p>
                   </blockquote>
                 </div>
                 <div class="mu-testimonial-img">
                   <img src="{{asset("elp_files/assets/img/testimonial-1.png")}}" alt="img">
                 </div>
                 <div class="mu-testimonial-info">
-                  <h4>John Doe</h4>
-                  <span>Happy Student</span>
+                  <h4>john doe</h4>
+                  <span>Etudiant entrepreneur</span>
                 </div>
               </div>
               <!-- end testimonial single item -->
@@ -400,7 +396,7 @@
               <div class="mu-testimonial-item">
                 <div class="mu-testimonial-quote">
                   <blockquote>
-                    <p>grace à la formation de enginnova, j'ai pu faire une conception de VR mon aplication mobile en 3 jours adipisicing elit. Voluptatem rerum.</p>
+                    <p>grace à enginnova j'ai pu lancer mon projet et reçu un finacement.</p>
                   </blockquote>
                 </div>
                 <div class="mu-testimonial-img">
@@ -408,7 +404,7 @@
                 </div>
                 <div class="mu-testimonial-info">
                   <h4>Rebaca Michel</h4>
-                  <span>Happy Parent</span>
+                  <span>Entrepreneur</span>
                 </div>
               </div>
               <!-- end testimonial single item -->
@@ -416,7 +412,7 @@
               <div class="mu-testimonial-item">
                 <div class="mu-testimonial-quote">
                   <blockquote>
-                    <p>grace à la formation de enginnova, j'ai pu faire une conception de VR mon aplication mobile en 3 jours adipisicing elit. Voluptatem rerum.</p>
+                    <p>grace à la formation de enginnova, je sais faire une modélisation 3D.</p>
                   </blockquote>
                 </div>
                 <div class="mu-testimonial-img">
@@ -424,7 +420,7 @@
                 </div>
                 <div class="mu-testimonial-info">
                   <h4>Stev Smith</h4>
-                  <span>Happy Student</span>
+                  <span>Etudiant</span>
                 </div>
               </div>
               <!-- end testimonial single item -->

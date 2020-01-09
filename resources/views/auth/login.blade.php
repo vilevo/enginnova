@@ -11,7 +11,13 @@
 @section('layout_main_content')
 <div class="container">
     <div class="row">
-        <div class="col-md-5 col-md-offset-3">
+        <div class="col-md-6">
+          <img src="{{asset('elp_files/assets/img/pic/network.png')}}" class="img-responsive" alt="image">
+        </div>
+        <div class="col-md-4">
+            <div class="alert alert-warning" >
+              <h4>Hello! Bienvenu dans notre communauté</h4>
+             </div>
             <div class="panel panel-default" style="background-color: #fff;">
                 <div class="panel-heading" style="background-color: #337AB7; color: white;"><b>Connexion</b></div>
 

@@ -4,27 +4,27 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="Enginnova Learning Program, ELP, apprendre à programmé, togo start up, communauté de developpeur, enginnova">
-    <meta name="description" content="Enginnova Learning Program est un programme de formation à travers des cours certifiants  pour accroître le nombre de technologues et fabriquer les ingénieurs et développeurs innovants d’aujourd’hui et de demain en investissant dans le talent et en veillant à ce que les bénéficiaires de ce programme soient prêts à l'emploi, tout en remédiant à la pénurie mondiale de compétences technologiques.">    
+    <meta name="keywords" content="Enginnova Learning Program, ELP, apprendre à programmé, togo start up, communauté de developpeur, enginnova, gagner de l'argent en ligne">
+    <meta name="description" content="Enginnova Community est un réseau de jeune entrepreneurs togolais dont l'objectif est d'accoitre le developpement numérique du togo à partir des formations, réseautages et des projets freelance.">    
     <title>@yield('titre')</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{asset("elp_files/assets/img/favicon.ico")}}" type="image/x-icon"  />
+    <link rel="shortcut icon" href='{{asset("elp_files/assets/img/enginnova.ico")}}' type="image/x-icon"  />
 
     <!-- Font awesome -->
-    <link href="{{asset("elp_files/assets/css/font-awesome.css")}}" rel="stylesheet" >
+    <link href='{{asset("elp_files/assets/css/font-awesome.css")}}' rel="stylesheet" >
     <!-- Bootstrap -->
-    <link href="{{asset("elp_files/assets/css/bootstrap.css")}}" rel="stylesheet">
+    <link href='{{asset("elp_files/assets/css/bootstrap.css")}}' rel="stylesheet">
     <!-- Slick slider -->
-    <link rel="stylesheet" type="text/css" href="{{asset("elp_files/assets/css/slick.css")}}">
+    <link rel="stylesheet" type="text/css" href='{{asset("elp_files/assets/css/slick.css")}}'>
     <!-- Fancybox slider -->
-    <link rel="stylesheet" href="{{asset("elp_files/assets/css/jquery.fancybox.css")}}" type="text/css" media="screen" />
+    <link rel="stylesheet" href='{{asset("elp_files/assets/css/jquery.fancybox.css")}}' type="text/css" media="screen" />
     <!-- Theme color -->
-    <link id="switcher" href="{{asset("elp_files/assets/css/theme-color/default-theme.css")}}" rel="stylesheet">
+    <link id="switcher" href='{{asset("elp_files/assets/css/theme-color/default-theme.css")}}' rel="stylesheet">
 
     <!-- Main style sheet -->
-    <link href="{{asset("elp_files/assets/css/style.css")}}" rel="stylesheet">
-    <link href="{{asset("elp_files/assets/css/ec_style.css")}}" rel="stylesheet">
+    <link href='{{asset("elp_files/assets/css/style.css")}}' rel="stylesheet">
+    <link href='{{asset("elp_files/assets/css/ec_style.css")}}' rel="stylesheet">
 
    
     <!-- Google Fonts -->
@@ -38,7 +38,7 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+  @yield('meta')
   </head>
   <body> 
 
@@ -63,7 +63,7 @@
                   </div>
                   <div class="mu-top-phone">
                     <i class="fa fa-phone"></i>
-                    <span>(568) 986 652</span>
+                    <span>+228 92991111</span>
                   </div>
                 </div>
               </div>
@@ -107,42 +107,24 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-            <li class="active"><a href="#">Home</a></li>
+            <li class="active"><a href="{{ url('acceuil') }}">Home</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Formations <span class="fa fa-angle-down"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Formations<span class="fa fa-angle-down"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Learn 2 code from scratch</a></li>
-                <li><a href="#">Learning program pro</a></li>
+                <li><a href="{{ url('learn-to-code-from-scratch') }}">Learn 2 code from scratch</a></li>
+                <li><a href="{{ url('Learning-program-pro') }}">Learning program pro</a></li>
               </ul>
             </li>           
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <span class="fa fa-angle-down"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Enginnova Community <span class="fa fa-angle-down"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="blog-archive.html">Blog Archive</a></li>                
-                <li><a href="blog-single.html">Blog Single</a></li>                
+                <li><a href="{{ url('enginnova-community') }}">Enginnova Learning</a></li>                
+                <li><a href="{{ url('freelance') }}">Freelance</a></li>                
               </ul>
             </li>
-            <li><a href="#" id="mu-search-icon"><i class="fa fa-search"></i></a></li>
-            <!-- Authentication Links -->
-            @guest
-              <li><a href="{{ route('login') }}">Se connecter</a></li>
-              <li><a href="{{ route('register') }}">S'inscrire</a></li>
-            @else            
-              <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                    {{ Auth::user()->name }} <span class="caret"></span>
-                  </a>
-
-                  <ul class="dropdown-menu">
-                    <li>
-                      <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                      </form>
-                    </li>
-                  </ul>
-              </li>
-            @endguest
+            <li><a href="{{ route('login') }}"><span class="label label-primary"><i class="fa fa-sign-in"></i> Connexion</span></a></li>
+            <!-- <li><a href="{{ route('register') }}">S'inscrire</a></li> -->            
+            <li><a href="{{ url('contact') }}">Contact</a></li>
           </ul>                     
         </div><!--/.nav-collapse -->        
       </div>     
@@ -164,18 +146,12 @@
       </div>
     </div>
   </div>
-  @yield('header_')
+  @yield('header')
   <!-- End search box -->
-
   <!-- je commence la copie a partir dici-->
-
-  <div class="">
-  @yield('layout_main_content')
-
-  </div>
-
-
-
+  
+    @yield('layout_main_content')
+  
 <!-- et fini ici-->
   <!-- Start footer -->
   <footer id="mu-footer">
@@ -188,11 +164,8 @@
               <div class="mu-footer-widget">
                 <h4>Information</h4>
                 <ul>
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="">Features</a></li>
-                  <li><a href="">Course</a></li>
-                  <li><a href="">Event</a></li>
-                  <li><a href="">Sitemap</a></li>
+                  <li><a href="#">A propos</a></li>
+                  <li><a href="">Formations</a></li>
                   <li><a href="">Term Of Use</a></li>
                 </ul>
               </div>
@@ -201,21 +174,18 @@
               <div class="mu-footer-widget">
                 <h4>Student Help</h4>
                 <ul>
-                  <li><a href="">Get Started</a></li>
-                  <li><a href="#">My Questions</a></li>
-                  <li><a href="">Download Files</a></li>
-                  <li><a href="">Latest Course</a></li>
-                  <li><a href="">Academic News</a></li>                  
+                  <li><a href="">Débutez</a></li>
+                  <li><a href="#">Aide</a></li>                  
                 </ul>
               </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-3">
               <div class="mu-footer-widget">
                 <h4>News letter</h4>
-                <p>Get latest update, news & academic offers</p>
+                <p>Découvrez nos dernières mise à jour, actualités & offres de formation</p>
                 <form class="mu-subscribe-form">
                   <input type="email" placeholder="Type your Email">
-                  <button class="mu-subscribe-btn" type="submit">Subscribe!</button>
+                  <button class="mu-subscribe-btn" type="submit">s'abonner!</button>
                 </form>               
               </div>
             </div>
@@ -223,8 +193,8 @@
               <div class="mu-footer-widget">
                 <h4>Contact</h4>
                 <address>
-                  <p>P.O. Box 320, Ross, California 9495, USA</p>
-                  <p>Phone: (415) 453-1568 </p>
+                  <p>Lomé, TOGO</p>
+                  <p>Phone: +228 92991111 </p>
                   <p>Website: www.enginnova.org</p>
                   <p>Email: contact@enginnova.org</p>
                 </address>
@@ -236,10 +206,10 @@
     </div>
     <!-- end footer top -->
     <!-- start footer bottom -->
-    <div class="mu-footer-bottom">
+    <div class="mu-footer-bottom" style="background-color: #337AB7;">
       <div class="container">
         <div class="mu-footer-bottom-area">
-          <p>&copy; All Right Reserved. Designed by <a href="http://www.markups.io/" rel="nofollow">MarkUps.io</a></p>
+          <p>&copy; All Right Reserved. Designed by <a href="http://www.markups.io/" rel="nofollow">Enginnova</a></p>
         </div>
       </div>
     </div>
@@ -248,24 +218,75 @@
   <!-- End footer -->
   
   <!-- jQuery library -->
-  <script src="{{asset("elp_files/assets/js/jquery.min.js")}}"></script>
+  <script src='{{asset("elp_files/assets/js/jquery.min.js")}}'></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="{{asset("elp_files/assets/js/bootstrap.js")}}"></script>
+  <script src='{{asset("elp_files/assets/js/bootstrap.js")}}'></script>
   <!-- Slick slider -->
-  <script type="text/javascript" src="{{asset("elp_files/assets/js/slick.js")}}"></script>
+  <script type="text/javascript" src='{{asset("elp_files/assets/js/slick.js")}}'></script>
   <!-- Counter -->
-  <script type="text/javascript" src="{{asset("elp_files/assets/js/waypoints.js")}}"></script>
-  <script type="text/javascript" src="{{asset("elp_files/assets/js/jquery.counterup.js")}}"></script>
+  <script type="text/javascript" src='{{asset("elp_files/assets/js/waypoints.js")}}'></script>
+  <script type="text/javascript" src='{{asset("elp_files/assets/js/jquery.counterup.js")}}'></script>
   <!-- Mixit slider -->
-  <script type="text/javascript" src="{{asset("elp_files/assets/js/jquery.mixitup.js")}}"></script>
+  <script type="text/javascript" src='{{asset("elp_files/assets/js/jquery.mixitup.js")}}'></script>
   <!-- Add fancyBox -->        
-  <script type="text/javascript" src="{{asset("elp_files/assets/js/jquery.fancybox.pack.js")}}"></script>
-  
-  
+  <script type="text/javascript" src='{{asset("elp_files/assets/js/jquery.fancybox.pack.js")}}'></script>
+  <!-- CK Editor -->
+  <script src='{{asset("ckeditor/ckeditor.js")}}'></script>
   <!-- Custom js -->
-  <script src="{{asset("elp_files/assets/js/custom.js")}}"></script>
+  <script src='{{asset("elp_files/assets/js/custom.js")}}'></script>
+  <!-- Social Share -->
+  <script src='{{asset("elp_files/assets/js/socialShare.js")}}'></script>
 
+  <script>
+    $(function () {
+      // Replace the <textarea id="editor1"> with a CKEditor
+      // instance, using default configuration.
+      CKEDITOR.replace('editor1')
+    });
+
+    $(document).ready(function(){
+      $('#questions_titre').keyup(function(){
+              var query = $(this).val();
+              if (query != '') {
+                  var _token = $('input[name="_token"]').val();
+                  $.ajax({
+                    url:"http://localhost/ec/public/fetchQuestions",
+                    method:"POST",
+                    data:{query:query, _token:_token},
+                    success:function(data){
+                      $('#questions_list').fadeIn();
+                      $('#questions_list').html(data);
+                    }
+                  });
+              }
+          });
+    });
+
+    $(document).ready(function(){
+      $('#enguser_name').keyup(function(){
+              var query = $(this).val();
+              if (query != '') {
+                  var _token = $('input[name="_token"]').val();
+                  $.ajax({
+                    url:"http://localhost/ec/public/fetchUser",
+                    method:"POST",
+                    data:{query:query, _token:_token},
+                    success:function(data){
+                      $('#users_list').fadeIn();
+                      $('#users_list').html(data);
+                    }
+                  });
+              }
+          });
+    });
+
+    $(document).ready(function(){
+      $('#booster').click(function(){
+        $('#boosterModal').modal('show');
+      });
+    });
+  </script>
   @yield('footer')
-
   </body>
 </html>
+@yield('formulaire')

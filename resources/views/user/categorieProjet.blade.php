@@ -96,7 +96,7 @@
                           <div class="media">
                                <?php $id_fprojet=$best_projet->id_fprojet*1000; ?>
                                 <div class="media-body">
-                                  <h4 class="media-heading"><a href='{{ url("user/freelance-projet/{$id_fprojet}") }}' style="color: #337AB7; font-weight: bold; font-size: 0.8em;">{{$best_projet->titre_projet}}</a></h4>                      
+                                  <h4 class="media-heading"><a href='{{ url("user/freelance-projet/{$id_fprojet}") }}' style="color: #337AB7; font-weight: bold; font-size: 0.8em;"><span class="label label-warning">[Freelance]</span> {{$best_projet->titre_projet}}</a></h4>                      
                                   <h6 style="color: gray;"><em><b>{{$best_projet->prix}}</b></em></h6>
                                 </div>
                           </div>

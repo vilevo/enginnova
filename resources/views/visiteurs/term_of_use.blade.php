@@ -1,0 +1,1 @@
+term_of_use.blade.php

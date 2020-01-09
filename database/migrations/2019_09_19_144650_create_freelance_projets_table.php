@@ -24,6 +24,7 @@ class CreateFreelanceProjetsTable extends Migration
             $table->string('prix');
             $table->boolean('actif');
             $table->integer('booster');
+            $table->string('type');
             $table->timestamps();
         });
     }

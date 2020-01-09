@@ -96,7 +96,7 @@
                           <div class="media">
                                <?php $id_fprojet=$best_projet->id_fprojet*1000; ?>
                                 <div class="media-body">
-                                  <h4 class="media-heading"><a href='{{ url("user/freelance-projet/{$id_fprojet}") }}' style="color: #337AB7; font-weight: bold; font-size: 0.8em;">{{$best_projet->titre_projet}}</a></h4>                      
+                                  <h4 class="media-heading"><a href='{{ url("user/freelance-projet/{$id_fprojet}") }}' style="color: #337AB7; font-weight: bold; font-size: 0.8em;"><span class="label label-warning">[Freelance]</span> {{$best_projet->titre_projet}}</a></h4>                      
                                   <h6 style="color: gray;"><em><b>{{$best_projet->prix}}</b></em></h6>
                                 </div>
                           </div>
@@ -118,6 +118,28 @@
                             </div>
                           @endforeach
                         @endif    
+                      </div>
+                    </div>
+                  </div>
+                  <!-- end single sidebar -->
+                  <!-- start single sidebar -->
+                  <div class="mu-single-sidebar">
+                    <div class="box box-primary">
+                      <div class="box-header">
+                        <i class="fa fa-sticky-note"></i>
+
+                        <h3 class="box-title">Utilisateurs connectés</h3>
+                      </div>
+                      <div class="box-body">
+                        <ul class="mu-sidebar-catg">
+                          @if(Auth::check())
+                            @foreach($users as $user)
+                              @if($user->isOnline())
+                                {{$user->name}} <br><hr>
+                              @endif
+                            @endforeach
+                          @endif
+                        </ul>
                       </div>
                     </div>
                   </div>

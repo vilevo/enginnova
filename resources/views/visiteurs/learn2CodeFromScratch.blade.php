@@ -6,6 +6,7 @@
 
 @section('header')
 <!-- Page breadcrumb -->
+<?php $type="learn-to-code-from-scratch"; ?>
  <section id="mu-page-breadcrumb" style="background-color: #337AB7;">
    <div class="container">
      <div class="row" style="background-color: #337AB7;">
@@ -15,6 +16,7 @@
            <ol class="breadcrumb pull-right">
             <li><a href="{{ url('acceuil') }}"><i class="fa fa-home"></i>Acceuil</a></li>            
             <li class="active" style="color: gold;">learn 2 Code From Scratch</li>
+            <li><a href='{{ url("formation-inscription/{$type}") }}' class="btn btn-warning" style="font-weight: bold;">S'incrire à la formation</a></li>
           </ol>
          </div>
        </div>
@@ -45,7 +47,6 @@
                     <li><h5 style="color: #337AB7;"><b>Junior</b></h5>Nombre d’étudiants dans la classe :  10 à 20  Conditions :  Toute personne passionnées des nouvelles technologies , aucune âge limite . Frais de formation (en FCFA) :1 personne = 25.000 ; Duo = 24.000 ; Trio = 22.000 ; Groupe de 5 personnes = 20.000 Possibilité de Cours du soir : Oui</li>
                     <li><h5 style="color: #337AB7;"><b>Sénior</b></h5>Nombre d’étudiants dans la classe :  10 à 20  Conditions :  Toute personne passionnées des nouvelles technologies , aucune âge limite . Frais de formation (en FCFA) :1 personne = 15.000 ; Duo = 14.000 ; Trio = 12.000 ; Groupe de 5 personnes = 10.000 Possibilité de Cours du soir : Oui</li>
                   </ul>
-                  <?php $type="learn-to-code-from-scratch"; ?>
                   <a href='{{ url("formation-inscription/{$type}") }}' class="btn btn-primary"><i class="fa fa-long-arrow-right"></i><b>S'inscrire</b></a><br>
                   <h4><a href="{{ url('Learning-program-pro') }}"><i class="fa fa-angle-double-right"></i> Découvrir aussi enginnova learning program pro</a></h4>
                 </div>

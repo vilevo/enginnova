@@ -28,7 +28,8 @@
 @section('layout_main_content')
 <div class="container">
     <div class="row">
-        <div class="col-md-5 col-md-offset-3">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
           <div class="panel panel-default">
           <div class="panel-heading" style="background-color: #ffffff;"><h3>S'inscrire à la formation</h3>
             @if (session('info'))
@@ -89,6 +90,13 @@
                     </form>
           </div>
         </div>
+        </div>
+        <div class="col-md-3">
+          <div class="alert alert-warning" >
+            <img src='{{asset("elp_files/assets/img/support.png")}}' alt="image" class="img-responsive"><br>
+            <h4>Allez! inscrivez-vous pour rejoindre notre communauté.</h4><br>
+            <a href="{{ route('register') }}" class="mu-post-btn" style="color: maroon;"><i class="fa fa-long-arrow-right"></i> S'inscricre </a>
+          </div>
         </div>
     </div>
 </div>

@@ -6,6 +6,7 @@
 
 @section('header')
 <!-- Page breadcrumb -->
+<?php $type = "Learning-program-pro"; ?>
  <section id="mu-page-breadcrumb" style="background-color: #337AB7;">
    <div class="container">
      <div class="row" style="background-color: #337AB7;">
@@ -15,6 +16,7 @@
            <ol class="breadcrumb pull-right">
             <li><a href="{{ url('acceuil') }}"><i class="fa fa-home"></i>Acceuil</a></li>            
             <li class="active" style="color: gold;">learning Program Pro</li>
+            <li><a href='{{ url("formation-inscription/{$type}") }}' class="btn btn-warning" style="font-weight: bold;">S'incrire à la formation</a></li>
           </ol>
          </div>
        </div>
@@ -56,7 +58,6 @@
                   	<li><h5><span class="label label-success">6</span> Introduction à Sickit Learn</h5></li>
                   	<li><h5><span class="label label-success">7</span> Déploiement de son projet IA dans le cloud</h5></li>
                   </ul>
-    			  <?php $type = "Learning-program-pro"; ?>
                   <a href='{{ url("formation-inscription/{$type}") }}' class="btn btn-primary"><i class="fa fa-long-arrow-right"></i><b>S'inscrire</b></a>
                   	<hr>
                   <h3>Réalité Virtuelle</h3>

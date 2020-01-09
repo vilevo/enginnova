@@ -16,6 +16,7 @@ use App\Manifestation;
 use App\GestionSlide;
 use App\GestionActivite;
 use App\Astuce;
+use App\Mentor;
 
 
 class AdministrateurController extends Controller
@@ -384,6 +385,40 @@ class AdministrateurController extends Controller
         if ($update) {
             return redirect('admin/trucs-astuces')->with('info','Astuce modifiée avec succès');
         }
+    }
+
+    public function gestionMentor()
+    {
+        $mentors = Mentor::all();
+        return view('admin.gestionMentor',['mentors'=>$mentors]);
+    }
+
+    public function newMentor(Request $request)
+    {
+        $this->validate($request, [
+            'nom'=>'required',
+            'profession'=>'required',
+            'photo'=>'required|image|mimes:jpeg,png,jpg|dimensions:min_width=100,min_height=100|max:2048',
+            'about'=>'required'
+        ]);
+
+        $photoName = time().'.'.$request->photo->getClientOriginalExtension();
+        $savePhoto = $request->photo->move(public_path('avatars'), $photoName);
+        $mentor = new Mentor;
+        $mentor->nom = $request->input('nom');
+        $mentor->profession = $request->input('profession');
+        $mentor->avatar = $photoName;
+        $mentor->about = $request->input('about');
+        if ($mentor->save()) {
+            return redirect('admin/gestion-mentor')->with('info','Mentor enrégistré avec succès');
+        }
+
+    }
+
+    public function traiteUsers()
+    {
+        $users = User::paginate(20);
+        return view('admin.traiteUsers',['users'=>$users]);
     }
 
     public function destroySlide($id){

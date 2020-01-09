@@ -109,23 +109,22 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-            <li class="active"><a href="{{ url('user/home') }}">Home</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe"></i> Notifications <span class="label label-danger">{{count(Auth::user()->unreadNotifications)}}</span></a>
+              <ul class="dropdown-menu" role="menu">
+                @foreach(Auth::user()->unreadNotifications as $notification)
+                  @include('layouts.notification.'.snake_case(class_basename($notification->type)))
+                @endforeach
+                
+              </ul>
+            </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Formations <span class="fa fa-angle-down"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="#">Learn 2 code from scratch</a></li>
                 <li><a href="#">Learning program pro</a></li>
               </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe"></i> Notifications <span class="label label-danger">{{count(Auth::user()->unreadNotifications)}}</span></a>
-              <ul class="dropdown-menu" role="menu">
-                @foreach(Auth::user()->unreadNotifications as $notification)
-                    <li><a href="#">{{$notification->type}}</a></li>
-                @endforeach
-                
-              </ul>
-            </li>           
+            </li>         
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">communauté ELP <span class="fa fa-angle-down"></span></a>
               <ul class="dropdown-menu" role="menu">
@@ -133,7 +132,7 @@
                 <li><a href="{{ url('user/freelance') }}">freelance</a></li>                
               </ul>
             </li>
-            <li><a href="#" id="mu-search-icon"><i class="fa fa-search"></i></a></li>
+            <!-- <li><a href="#" id="mu-search-icon"><i class="fa fa-search"></i></a></li> -->
             <!-- Authentication Links -->
             @guest
               <li><a href="{{ route('login') }}">Se connecter</a></li>
@@ -149,6 +148,7 @@
                      <li><a href='{{ url("user/profil/{$id}") }}'>Profil</a></li>
                      <li><a href="{{ url('user/add-post') }}">Poser une question</a></li>
                      <li><a href="{{ url('user/add-projet') }}">Publier un projet(freelance)</a></li>
+                     <li><a href="{{ url('user/add-projet-benevolat') }}">Publier un projet(bénévolat)</a></li>
                     <li>
                       <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Se déconnecter</a>
                       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -265,7 +265,7 @@
   <script src='{{asset("elp_files/assets/js/jquery.min.js")}}'></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src='{{asset("elp_files/assets/js/bootstrap.js")}}'></script>
-  <script src='{{asset("elp_files/assets/js/jquery-ui.min")}}'></script>
+  <script src='{{asset("elp_files/assets/js/jquery-ui.min.js")}}'></script>
   <!-- Slick slider -->
   <script type="text/javascript" src='{{asset("elp_files/assets/js/slick.js")}}'></script>
   <!-- Counter -->
@@ -279,7 +279,6 @@
   <script src='{{asset("elp_files/assets/js/custom.js")}}'></script>
    <!-- Social Share -->
   <script src='{{asset("elp_files/assets/js/socialShare.js")}}'></script>
-  <script src="{{ asset('js/app.js') }}"></script>
   <!-- CK Editor -->
   <script src='{{asset("ckeditor/ckeditor.js")}}'></script>
   <!-- fullcalendar -->
