@@ -437,4 +437,9 @@ class VisiteurController extends Controller
       $users = User::paginate(10);
       return view('visiteurs.usersEnginnova',['users'=>$users]);
     }
+
+    public function conditions_generales()
+    {
+      return view('visiteurs.term_of_use');
+    }
 }

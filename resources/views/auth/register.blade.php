@@ -57,7 +57,7 @@
                             <div class="col-xs-8">
                               <div class="checkbox icheck">
                                 <label>
-                                  <input type="checkbox"> I agree to the <a href="#">terms</a>
+                                  <input type="checkbox"> J'accepte <a href="{{url('conditions-generales')}}">les conditions générales d'utilisation</a>
                                 </label>
                               </div>
                             </div>

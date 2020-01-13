@@ -107,16 +107,16 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-            <li class="active"><a href="{{ url('acceuil') }}">Home</a></li>
+            <li class="active"><a href="{{ url('acceuil') }}"><i class="fa fa-home"></i> Home</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Formations<span class="fa fa-angle-down"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book"></i> Formations<span class="fa fa-angle-down"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="{{ url('learn-to-code-from-scratch') }}">Learn 2 code from scratch</a></li>
                 <li><a href="{{ url('Learning-program-pro') }}">Learning program pro</a></li>
               </ul>
             </li>           
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Enginnova Community <span class="fa fa-angle-down"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users"></i> Enginnova Community <span class="fa fa-angle-down"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="{{ url('enginnova-community') }}">Enginnova Learning</a></li>                
                 <li><a href="{{ url('freelance') }}">Freelance</a></li>                
@@ -124,7 +124,7 @@
             </li>
             <li><a href="{{ route('login') }}"><span class="label label-primary"><i class="fa fa-sign-in"></i> Connexion</span></a></li>
             <!-- <li><a href="{{ route('register') }}">S'inscrire</a></li> -->            
-            <li><a href="{{ url('contact') }}">Contact</a></li>
+            <li><a href="{{ url('contact') }}"><i class="fa fa-phone"></i> Contact</a></li>
           </ul>                     
         </div><!--/.nav-collapse -->        
       </div>     
@@ -162,19 +162,19 @@
           <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-3">
               <div class="mu-footer-widget">
-                <h4>Information</h4>
+                <h4>Informations</h4>
                 <ul>
-                  <li><a href="#">A propos</a></li>
-                  <li><a href="">Formations</a></li>
-                  <li><a href="">Term Of Use</a></li>
+                  <li><a href="{{url('a-propos')}}">A propos</a></li>
+                  <li><a href="{{url('learn-to-code-from-scratch')}}">Formations</a></li>
+                  <li><a href="{{url('conditions-generales')}}">Conditions Générales d'utilisations</a></li>
                 </ul>
               </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-3">
               <div class="mu-footer-widget">
-                <h4>Student Help</h4>
+                <h4>Enginnova community</h4>
                 <ul>
-                  <li><a href="">Débutez</a></li>
+                  <li><a href="{{ route('login') }}">Débutez</a></li>
                   <li><a href="#">Aide</a></li>                  
                 </ul>
               </div>

@@ -1,7 +1,14 @@
+UPDATE gestion_slides
+SET image = "slider1.jpg",
+WHERE
+   id=1;
 
-INSERT INTO observations (name,valeur) 
-VALUES ('super bon', 10),
-('bon', 9),
-('assez bien', 7),
-('passable', 5),
-('insuffisent', 3);
+UPDATE gestion_slides
+SET image = "slider2.jpg",
+WHERE
+   id=2;
+
+UPDATE gestion_slides
+SET image = "slider3.jpg",
+WHERE
+   id=3;

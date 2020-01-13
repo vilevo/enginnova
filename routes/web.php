@@ -29,7 +29,7 @@ Route::get('contact', 'ContactController@index')->name('contact');
 Route::get('formation-inscription/{type}', 'VisiteurController@formationAdd');
 Route::get('lire-activite/{id}', 'VisiteurController@LireActivite')->where('id', '[0-9]+');
 Route::get('geeking/{id}', 'VisiteurController@geeking')->where('id', '[0-9]+');
-
+Route::get('conditions-generales', 'VisiteurController@conditions_generales');
 //fetch route
 Route::get('/fetch-mentor/{id}', 'MentorController@fetchMentor')->where('id', '[0-9]+');
 Route::post('/fetchQuestions', 'VisiteurController@fetchQuestions')->name('fetchQuestions');
