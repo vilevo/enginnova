@@ -14,7 +14,7 @@
         <div class="mu-slider-single">
           <div class="mu-slider-img">
             <figure>
-              <img src='{{asset("elp_files/assets/img/slider/$slide->image")}}'  alt="img">
+              <img src='{{asset("elp_files/assets/img/slider/slider1.jpg")}}'  alt="img">
             </figure>
           </div>
           <div class="mu-slider-content">
