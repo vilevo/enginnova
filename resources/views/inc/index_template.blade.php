@@ -250,7 +250,7 @@
               if (query != '') {
                   var _token = $('input[name="_token"]').val();
                   $.ajax({
-                    url:"http://localhost/ec/public/fetchQuestions",
+                    url:"http://enginnova.herokuapp.com/fetchQuestions",
                     method:"POST",
                     data:{query:query, _token:_token},
                     success:function(data){
@@ -268,7 +268,7 @@
               if (query != '') {
                   var _token = $('input[name="_token"]').val();
                   $.ajax({
-                    url:"http://localhost/ec/public/fetchUser",
+                    url:"http://enginnova.herokuapp.com/fetchUser",
                     method:"POST",
                     data:{query:query, _token:_token},
                     success:function(data){

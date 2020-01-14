@@ -271,11 +271,11 @@
     $(document).on('click', '#select_mentor', function(){
       var id = $(this).data("id");
       if (id != '') {
-                var url = "http://localhost/ec/public/fetch-mentor/"+id;
+                var url = "http://enginnova.herokuapp.com/fetch-mentor/"+id;
                 $.get(url, function(data){
                     $('#mentor_avt').empty();
                     $('#mentorModal').modal('show');
-                    $('#mentor_avt').append('<img class="img-thumbnail img-responsive" height="150" width="150" src="http://localhost/ec/public/avatars/'+data.avatar+'">');
+                    $('#mentor_avt').append('<img class="img-thumbnail img-responsive" height="150" width="150" src="http://enginnova.herokuapp.com/avatars/'+data.avatar+'">');
                     $('#nom').html(data.nom);
                     $('#profession').html(data.profession);
                     $('#mentor_desc').html(data.about);
@@ -289,7 +289,7 @@
               if (query != '') {
                   var _token = $('input[name="_token"]').val();
                   $.ajax({
-                    url:"http://localhost/ec/public/admin/fetch-user",
+                    url:"http://enginnova.herokuapp.com/admin/fetch-user",
                     method:"POST",
                     data:{query:query, _token:_token},
                     success:function(data){

@@ -15,6 +15,9 @@
             <img src="{{asset('elp_files/assets/img/pic/network.png')}}" class="img-responsive" alt="image">
         </div>
         <div class="col-md-4">
+            <div class="alert alert-warning" >
+              <h4>Rejoignez notre communauté</h4>
+             </div>
             <div class="panel panel-default">
                 <div class="panel-heading" style="background-color: #337AB7; color: white;"><b>Inscription</b></div>
                 <div class="panel-body">
