@@ -1,1 +1,1 @@
-DROPE TABLE users;
+DROP TABLE [IF EXISTS] role_user [CASCADE | RESTRICT];
