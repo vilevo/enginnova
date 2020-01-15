@@ -52,7 +52,7 @@ class HomeController extends Controller
         $users = User::all();
         if ($check_cv == 0) {
             $notif_cv = "Veuillez mettre en ligne votre CV pour pouvoir postuler aux projets freelance.";
-            $user_id = $user_id*1000;
+            $user_id = $user_id;
         }else{
             $notif_cv=false;
         }
