@@ -11,6 +11,7 @@ use App\Manifestation;
 use App\Note;
 use App\Observation;
 use App\FreelanceProjet;
+use App\Cv;
 
 class ParcoursController extends Controller
 {
@@ -45,27 +46,35 @@ class ParcoursController extends Controller
             $check_experience = Experience::select('id_experience')->where('id_user', $id)
                                                     ->where('id_fprojet', $user_id)
                                                     ->count();
+
+            $check_cv = Cv::select('id_cv')->where('id_user',$user_id)->count();
+
             if ($check_manifestation == 0 && $check_experience == 0) {
-                $manifestater->id_fprojet = $id;
-                $manifestater->id_user = $user_id;
-                $manifestater->selectionne = false;
-                $manifestater->valider = false;
-                $experience->id_user = $user_id;
-                $experience->id_fprojet = $id;
-                $experience->selectionne = false;
-                $experience->projet_traite = false;
-                $experience->id_observation = 0;
-                $experience->id_workspace = 0;
-                if ($manifestater->save() && $experience->save()) {
-                    $projet = FreelanceProjet::select('reponses')->where('id_fprojet', $id)->first();
-                    $data = array(
-                    'reponses' => $projet->reponses+1
-                    );
-                    $update = FreelanceProjet::where('id_fprojet', $id)->update($data); 
-                    if ($update) {
-                        return redirect('user/freelance-projet/'.$x)->with('info', 'Votre candidature a été enregistrée avec succès! Le chef projet vous contactera bientot. d\'ici là vous pouvez vérifier l\'état de votre demande dans le menu parcours');
+                if($check_cv == 0)
+                {
+                    $manifestater->id_fprojet = $id;
+                    $manifestater->id_user = $user_id;
+                    $manifestater->selectionne = false;
+                    $manifestater->valider = false;
+                    $experience->id_user = $user_id;
+                    $experience->id_fprojet = $id;
+                    $experience->selectionne = false;
+                    $experience->projet_traite = false;
+                    $experience->id_observation = 0;
+                    $experience->id_workspace = 0;
+                    if ($manifestater->save() && $experience->save()) {
+                        $projet = FreelanceProjet::select('reponses')->where('id_fprojet', $id)->first();
+                        $data = array(
+                        'reponses' => $projet->reponses+1
+                        );
+                        $update = FreelanceProjet::where('id_fprojet', $id)->update($data); 
+                        if ($update) {
+                            return redirect('user/freelance-projet/'.$x)->with('info', 'Votre candidature a été enregistrée avec succès! Le chef projet vous contactera bientot. d\'ici là vous pouvez vérifier l\'état de votre demande dans le menu parcours');
+                        }
                     }
-                }
+            }else{
+                return redirect('user/freelance-projet/'.$x)->with('info_error', 'Veuillez mettre à jour votre cv dans le menu profil avant de déposer une candidature pour cet projet SVP!');
+            }
             }else{
                return redirect('user/freelance-projet/'.$x)->with('info_error', 'Vous avez déjà déposer une candidature pour cet projet!');
             }
