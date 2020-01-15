@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = 'VerifyEmailFirst';
+    protected $redirectTo = 'user/home';
 
     /**
      * Create a new controller instance.
