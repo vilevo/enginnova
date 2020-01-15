@@ -15,6 +15,7 @@
 root pour les utilisateurs
 */
 
+Route::get('VerifyEmailFirst','Auth\RegisterController@VerifyEmailFirst')->name('VerifyEmailFirst');
 Route::get('/', 'VisiteurController@index')->name('acceuil');
 Route::get('acceuil', 'VisiteurController@index')->name('acceuil');
 Route::get('learn-to-code-from-scratch', 'LearnscratchController@index')->name('learn2CodeFromScratch');

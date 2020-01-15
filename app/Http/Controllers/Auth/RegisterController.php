@@ -71,4 +71,9 @@ class RegisterController extends Controller
             'verifyToken' => Str::random(40),
         ]);
     }
+
+    public function VerifyEmailFirst()
+    {
+        return view('email.verify_email_first');
+    }
 }
