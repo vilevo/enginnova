@@ -1,8 +1,6 @@
- 
-CREATE TABLE role_user (
-   role_id INT NOT NULL,
-   user_id INT NOT NULL,
+INSERT INTO roles (id,name)
+	VALUES ('1','user'),
+		  ('2','admin');
 
-   FOREIGN KEY (role_id) REFERENCES roles (id),
-   FOREIGN KEY (user_id) REFERENCES users (id)
-);
+INSERT INTO role_user (id,name)
+	VALUES ('2','1');
