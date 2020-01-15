@@ -50,7 +50,7 @@ class ParcoursController extends Controller
             $check_cv = Cv::select('id_cv')->where('id_user',$user_id)->count();
 
             if ($check_manifestation == 0 && $check_experience == 0) {
-                if($check_cv == 0)
+                if($check_cv == 1)
                 {
                     $manifestater->id_fprojet = $id;
                     $manifestater->id_user = $user_id;
