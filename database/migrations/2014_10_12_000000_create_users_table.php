@@ -18,6 +18,8 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('verifyToken');
+            $table->boolean('status')->default(false);
             $table->string('telephone')->default('rien');
             $table->string('avatar')->default('default.png');
             $table->string('profession')->default('vide');
