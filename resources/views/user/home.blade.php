@@ -86,7 +86,7 @@
 
                               <div class="timeline-item">
                                 <span class="time"><i class="fa fa-clock-o"></i></span>
-                                <h3 class="timeline-header"><a href="#" style="color: #337AB7;">Enginnova</a> Mise à jour CV</h3>
+                                <h3 class="timeline-header"><a href="#" style="color: #337AB7;">Mise à jour du profil</a></h3>
 
                                 <div class="timeline-body">
                                   Hello {{Auth::user()->name}} ! <br> 

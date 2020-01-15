@@ -1,2 +1,3 @@
-ALTER TABLE freelance_projets
-	ADD COLUMN type VARCHAR;
+ALTER TABLE users
+	ADD COLUMN verifyToken VARCHAR,
+				status BOOLEAN;
