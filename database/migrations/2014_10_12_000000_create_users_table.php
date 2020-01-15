@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('verifyToken');
             $table->boolean('status')->default(false);
-            $table->string('telephone')->default('rien');
+            $table->string('telephone')->default('vide');
             $table->string('avatar')->default('default.png');
             $table->string('profession')->default('vide');
             $table->string('competences')->default('vide');
