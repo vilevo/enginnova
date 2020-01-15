@@ -1,6 +1,8 @@
-INSERT INTO roles (id,name)
-	VALUES ('1','user'),
-		  ('2','admin');
+ 
+CREATE TABLE role_user (
+   role_id INT NOT NULL,
+   user_id INT NOT NULL,
 
-INSERT INTO role_user (id,name)
-	VALUES ('2','1');
+   FOREIGN KEY (role_id) REFERENCES roles (id),
+   FOREIGN KEY (user_id) REFERENCES users (id)
+);
