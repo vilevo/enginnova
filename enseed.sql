@@ -1,3 +1,3 @@
 ALTER TABLE users
 	ADD COLUMN verifyToken VARCHAR,
-				status BOOLEAN;
+	ADD COLUMN status BOOLEAN;
