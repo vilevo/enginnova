@@ -90,12 +90,11 @@
 
                                 <div class="timeline-body">
                                   Hello {{Auth::user()->name}} ! <br> 
-                                  Bienvenu sur la plateforme Enginnova Community. Pour pouvoir 
-                                  postuler aux projets vous devez mettre en ligne votre CV.
+                                  Bienvenu sur Enginnova Community. Pour postuler aux projets vous devez mettre en ligne votre CV et vos informations personnelles.
                                 </div>
                                 <div class="timeline-footer">
                                   <?php $id_user = $id_user*1000; ?>
-                                  <a href='{{ url("user/profil/{$id_user}") }}' title="Mettre en ligne un CV" class="btn btn-primary btn-xs">Mettre en ligne mon CV</a>
+                                  <a href='{{ url("user/profil/{$id_user}") }}' title="Mettre en ligne un CV" class="btn btn-primary btn-xs">Mettre à jour le profil</a>
                                   <!-- <a class="btn btn-danger btn-xs">Delete</a> -->
                                 </div>
                               </div>
