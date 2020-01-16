@@ -52,7 +52,7 @@
                             <div class="box-header with-border">
                               <div class="user-block">
                                 <?php $id_post=$post->id_post*1000; ?>
-                                <img class="img-circle" src='{{ asset("avatars/{$post->avatar}") }}' width="50" height="50" alt="User profile picture" alt="User Image">
+                                <img class="img-circle" src="https://enginnova.s3-us-west-2.amazonaws.com/<?php echo $post->avatar; ?>" width="50" height="50" alt="User profile picture" alt="User Image">
                                 <span style="font-size: 16px; font-weight: 600;"><a href='{{ url("user/question/{$id_post}") }}'>{{$post->titre_post}}</a></span><br>
                                 <span style="color: #999; font-size: 13px;">Posté le - {{date('d F Y',strtotime($post->created_at))}}</span>
                               </div>

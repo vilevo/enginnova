@@ -8,21 +8,25 @@
 
 	 <!-- Start Slider -->
   <section id="mu-slider">
+    @if(!empty($slides))
+      @foreach($slides->all() as $slide)
         <!-- Start single slider item -->
         <div class="mu-slider-single">
           <div class="mu-slider-img">
             <figure>
-              <img src="https://enginnova.s3-us-west-2.amazonaws.com/elpfiles/slider1.JPG"  alt="img">
+              <img src="https://enginnova.s3-us-west-2.amazonaws.com/elpfiles/<?php echo $slide->image; ?>"  alt="img">
             </figure>
           </div>
           <div class="mu-slider-content">
-            <h4>Bienvenu sur Enginnova Community</h4>
+            <h4>{{ $slide->titre_1 }}</h4>
             <span></span>
-            <h2>Formations de haut niveau</h2>
-            <p>Enginnova Learning Program est un programme de formation à travers des cours certifiants et pour accroitre le nombre de technologues et fabriquer les ingénieurs et développeurs <strong>innovants</strong>.</p>
+            <h2>{{ $slide->titre_2 }}</h2>
+            <p>{{ $slide->contenu }}</p>
             <a href="{{ route('register') }}" class="mu-read-more-btn">S'inscrire</a>
           </div>
         </div>
+      @endforeach
+    @endif
         <!-- Start single slider item -->
         <!-- Start single slider item -->
         <div class="mu-slider-single">
@@ -273,7 +277,7 @@
                   <div class="col-lg-4 col-md-4 col-xs-12">
                     <div class="mu-latest-course-single">
                       <figure class="mu-latest-course-img">
-                        <a href="#"><img src='{{asset("posts/{$activite->photo}")}}' alt="img"></a>
+                        <a href="#"><img src="https://enginnova.s3-us-west-2.amazonaws.com/<?php echo $activite->photo; ?>" alt="img"></a>
                         <figcaption class="mu-latest-course-imgcaption">
                           <a href="#">#Enginnova</a>
                           <span><i class="fa fa-calendar"></i> {{date('d F',strtotime($activite->created_at))}}</span>

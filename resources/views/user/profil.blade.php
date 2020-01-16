@@ -27,9 +27,9 @@
                   <div class="box-body box-profile">
                     <?php $id = $user->id*1000; ?>
                     @if($user->id == Auth::user()->id)
-                      <a href='#' id="updateAvatar"><img class="profile-user-img img-responsive" src='{{ asset("avatars/{$user->avatar}") }}' alt="User profile picture"></a>
+                      <a href='#' id="updateAvatar"><img class="profile-user-img img-responsive" src="https://enginnova.s3-us-west-2.amazonaws.com/<?php echo $user->avatar; ?>" alt="User profile picture"></a>
                     @else
-                      <a href='#'><img class="profile-user-img img-responsive" src='{{ asset("avatars/{$user->avatar}") }}' alt="User profile picture"></a>
+                      <a href='#'><img class="profile-user-img img-responsive" src="https://enginnova.s3-us-west-2.amazonaws.com/<?php echo $user->avatar; ?>" alt="User profile picture"></a>
                     @endif
 
                     <h3 class="profile-username text-center">{{$user->name}}</h3>
@@ -159,14 +159,14 @@
                                 <h4 align="center">Curriculum Vitae</h4>
                               <?php $id = $user->id*1000; ?>
                               @if($cv != false)
-                                <a href='{{ asset("cv/{$cv->cv}") }}'><img class="img-responsive" src='{{ asset("cv/{$cv->cv}") }}' width="80%" height="80%" alt="Votre CV"></a><br>
+                                <a href="https://enginnova.s3-us-west-2.amazonaws.com/<?php echo $cv->cv; ?>"><img class="img-responsive" src="https://enginnova.s3-us-west-2.amazonaws.com/<?php echo $cv->cv; ?>" width="80%" height="80%" alt="Votre CV"></a><br>
                                 @if($user->id == Auth::user()->id)
                                   <a href='#' id="updateCv" class="mu-post-btn"><i class=""></i>mettre à jour mon CV</a>
                                   <h6 style="color: maroon;">Le traitement de votre CV a dépassé 48h ? Envoyez nous un mail.
                                   </h6><a href="#" id="booster" class="label label-danger"><i class="fa fa-send"></i> Signaler le probleme </a>
                                 @endif
                               @else
-                                <img class="img-responsive" src="{{ asset('cv/default.jpg') }}" width="80%" height="80%" alt="Votre CV">
+                                <img class="img-responsive" src="https://enginnova.s3-us-west-2.amazonaws.com/default.JPG>" width="80%" height="80%" alt="Votre CV">
                                   @if($user->id == Auth::user()->id)
                                     <a href='#' id="updateCv" class="mu-post-btn"><i class=""></i>mettre à jour mon CV</a>
                                     <h6 style="color: maroon;">Le traitement de votre CV a dépassé 48h ? Envoyez nous un mail.
@@ -322,7 +322,7 @@
                             <div class="box-header with-border">
                               <div class="user-block">
                                 <?php $id_post=$question->id_post*1000; ?>
-                                <img class="img-circle" src='{{ asset("avatars/{$user->avatar}") }}' width="50" height="50" alt="User profile picture" alt="User Image">
+                                <img class="img-circle" src="https://enginnova.s3-us-west-2.amazonaws.com/<?php echo $user->avatar; ?>" width="50" height="50" alt="User profile picture" alt="User Image">
                                 <span style="font-size: 16px; font-weight: 600;"><a href='{{ url("user/question/{$id_post}") }}'>{{$question->titre_post}}</a></span><br>
                                 <span style="color: #999; font-size: 13px;">Posté le - {{date('d F Y',strtotime($question->created_at))}}</span>
                               </div>
