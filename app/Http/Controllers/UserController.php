@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use App\User;
 use App\Experience;
 use App\Cv;
@@ -52,8 +53,20 @@ class UserController extends Controller
     		'avatar'=> 'required|image|mimes:jpeg,png,jpg|dimensions:min_width=100,min_height=100|max:2048'
     	]);
     	$user_id = Auth::user()->id;
-    	$avatarName = time().'.'.$request->avatar->getClientOriginalExtension();
-        $saveAvatar = $request->avatar->move(public_path('avatars'), $avatarName);
+        //get filename with extension
+        $filenamewithextension = $request->file('avatar')->getClientOriginalName();
+ 
+        //get filename without extension
+        $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+ 
+        //get file extension
+        $extension = $request->file('avatar')->getClientOriginalExtension();
+ 
+        //filename to store
+        $avatarName = $filename.'_'.time().'.'.$extension;
+ 
+        //Upload File to s3
+        $saveAvatar = Storage::disk('s3')->put($avatarName, fopen($request->file('avatar'), 'r+'), 'public');
         if ($saveAvatar) {
             $check = User::select('avatar')->where('id', $user_id)->first();
             if ($check == "default.png") {
