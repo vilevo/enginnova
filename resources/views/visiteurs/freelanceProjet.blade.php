@@ -68,7 +68,7 @@
                             <div class="box-header with-border">
                               <div class="user-block">
                                 <?php $id_fprojet=$freelance_projet->id_fprojet*1000; ?>
-                                <img class="img-circle" src='{{ asset("avatars/{$freelance_projet->avatar}") }}' width="50" height="50" alt="User profile picture" alt="User Image">
+                                <img class="img-circle" src="https://enginnova.s3-us-west-2.amazonaws.com/<?php echo $freelance_projet->avatar; ?>" width="50" height="50" alt="User profile picture" alt="User Image">
                                 <span style="font-size: 16px; font-weight: 600;"><a href='{{ url("user/freelance-projet/{$id_fprojet}") }}'>
                                    @if($freelance_projet->type=="benevolat")
                                     {{$freelance_projet->titre_projet}} <span class="label label-info">[bénévolat]</span>
@@ -142,7 +142,7 @@
                             <div class="media">
                               <div class="media-left">
                                 <a href="#">
-                                  <img class="media-object" src='{{asset("posts/{$astuce->photo}")}}' class="img-responsive" width="50" height="50" alt="image">
+                                  <img class="media-object" src="https://enginnova.s3-us-west-2.amazonaws.com/<?php echo $astuce->photo; ?>" class="img-responsive" width="50" height="50" alt="image">
                                 </a>
                               </div>
                               <div class="media-body">

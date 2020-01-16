@@ -38,7 +38,7 @@
 		              <h5 class="widget-user-desc" style="color: white;">{{$mentor->profession}}</h5>
 		            </div>
 		            <div class="widget-user-image">
-		              <img class="img-thumbnail img-responsive" height="150" width="150" src='{{ asset("avatars/{$mentor->avatar}") }}' alt="User Avatar">
+		              <img class="img-thumbnail img-responsive" height="150" width="150" src="https://enginnova.s3-us-west-2.amazonaws.com/<?php echo $mentor->photo; ?>" alt="User Avatar">
 		            </div>
 		            <div class="box-footer">
 		              <div class="row">

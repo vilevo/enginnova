@@ -57,7 +57,7 @@
                             <div class="box-header with-border">
                               <div class="user-block">
                                 <?php $id_post=$post->id_post*1000; ?>
-                                <img class="img-circle" src='{{ asset("avatars/{$post->avatar}") }}' width="50" height="50" alt="User profile picture" alt="User Image">
+                                <img class="img-circle" src="https://enginnova.s3-us-west-2.amazonaws.com/<?php echo $post->avatar; ?>" width="50" height="50" alt="User profile picture" alt="User Image">
                                 <span style="font-size: 16px; font-weight: 600;"><a href='{{ url("question/{$id_post}") }}'>{{$post->titre_post}}</a></span><br>
                                 <span style="color: #999; font-size: 13px;">Posté le - {{date('d F Y',strtotime($post->created_at))}}</span>
                               </div>
@@ -113,7 +113,7 @@
                             <div class="media">
                               <div class="media-left">
                                 <a href="#">
-                                  <img class="media-object" src='{{asset("posts/{$astuce->photo}")}}' class="img-responsive" width="50" height="50" alt="image">
+                                  <img class="media-object" src="https://enginnova.s3-us-west-2.amazonaws.com/<?php echo $astuce->photo; ?>" class="img-responsive" width="50" height="50" alt="image">
                                 </a>
                               </div>
                               <div class="media-body">

@@ -9,7 +9,7 @@
       <meta property="og:type" content="website">
       <meta property="og:title" content="{{$activite->titre}}">
       <meta property="og:description" content="<?php echo substr($activite->contenu, 0,200); ?>">
-<meta property="og:image" content='{{asset("posts/{$activite->photo}")}}'>
+<meta property="og:image" content="https://enginnova.s3-us-west-2.amazonaws.com/<?php echo $activite->photo; ?>">
 @endsection
 
 @section('header')
@@ -74,9 +74,9 @@
                         <div class="box box-widget">
                             <div class="box-header with-border">
                               <div class="user-block">
-                                <img class="img-circle" src='{{ asset("avatars/enginnova.png") }}' width="100" height="100" alt="User profile picture" alt="User Image">
+                                <img class="img-circle" src="https://enginnova.s3-us-west-2.amazonaws.com/enginnova.png" width="100" height="100" alt="User profile picture" alt="User Image">
                                 <figure class="mu-blog-single-img">
-                          			<a href="#"><img alt="img" class="img-responsive" src='{{asset("posts/{$activite->photo}")}}' alt="image"></a>
+                          			<a href="#"><img alt="img" class="img-responsive" src="https://enginnova.s3-us-west-2.amazonaws.com/<?php echo $activite->photo; ?>" alt="image"></a>
                           		</figure><br>
                                 <span style="font-size: 16px; font-weight: 600;"><a href='{{ url("lire-activite/{$activite->id}") }}'>{{$activite->titre}}</a></span><br>
                                 <span style="color: #999; font-size: 13px;">Posté le - {{date('d F Y',strtotime($activite->created_at))}}</span>
@@ -153,7 +153,7 @@
                                     <div class="media">
     					                        <div class="media-left">
     					                          <a href="#">
-    					                            <img class="media-object" src='{{asset("posts/{$activite->photo}")}}' class="img-responsive" width="50" height="50" alt="image">
+    					                            <img class="media-object" src="https://enginnova.s3-us-west-2.amazonaws.com/<?php echo $activite->photo; ?>"' class="img-responsive" width="50" height="50" alt="image">
     					                          </a>
     					                        </div>
     					                        <div class="media-body">
