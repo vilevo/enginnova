@@ -27,39 +27,6 @@
         </div>
       @endforeach
     @endif
-        <!-- Start single slider item -->
-        <!-- Start single slider item -->
-        <div class="mu-slider-single">
-          <div class="mu-slider-img">
-            <figure>
-              <img src="https://enginnova.s3-us-west-2.amazonaws.com/elpfiles/slider1.JPG"  alt="img">
-            </figure>
-          </div>
-          <div class="mu-slider-content">
-            <h4>Devenez freelance</h4>
-            <span></span>
-            <h2>Projets freelance et benevolat</h2>
-            <p>Eh oui avec enginnova vous pouvez gagner de l'argent en ligne en participant aux projets freelance. Et si vous n'avez pas les moyens pour lancer vos projets vous avez la possiblité de publier des projet benevolat.</p>
-            <a href="{{ route('register') }}" class="mu-read-more-btn">S'inscrire</a>
-          </div>
-        </div>
-        <!-- Start single slider item -->
-        <!-- Start single slider item -->
-        <div class="mu-slider-single">
-          <div class="mu-slider-img">
-            <figure>
-              <img src="https://enginnova.s3-us-west-2.amazonaws.com/elpfiles/slider1.JPG"  alt="img">
-            </figure>
-          </div>
-          <div class="mu-slider-content">
-            <h4>Partagez vos connaissances</h4>
-            <span></span>
-            <h2>Enginnova community</h2>
-            <p>Elargissez et partagez vos connaissances! peu importe le domaine, publiez votre question sur la plateforme et vous aurez des réponses satisfaisantes venant des membres de enginnova community. Plus vous repondez plus vous gagnez!</p>
-            <a href="{{ route('register') }}" class="mu-read-more-btn">S'inscrire</a>
-          </div>
-        </div>
-        <!-- Start single slider item -->
   </section>
   <!-- End Slider -->
   <!-- Start service  -->
@@ -121,7 +88,7 @@
               </div>
               <div class="col-lg-6 col-md-6">
                 <div class="mu-about-us-right">
-                <a id="mu-abtus-video" href="https://www.youtube.com/embed/HN3pm9qYAUs" target="mutube-video">
+                <a id="mu-abtus-video" href="https://www.youtube.com/embed/BurO7YRxDhk" target="mutube-video">
                   <img src='{{asset("elp_files/assets/img/about-us.jpg")}}' alt="img">
                 </a>
                 </div>
