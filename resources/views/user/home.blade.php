@@ -262,6 +262,7 @@
                             @foreach($users as $user)
                               @if($user->isOnline())
                                 <?php $idline = $user->id*1000; ?>
+                                <img class="img-circle" src="https://enginnova.s3-us-west-2.amazonaws.com/<?php echo $user->avatar; ?>" width="50" height="50" alt="User profile picture" alt="User Image">
                                 <a href='{{ url("user/profil/{$idline}") }}'>{{$user->name}}</a> <br><hr>
                               @endif
                             @endforeach
