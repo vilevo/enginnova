@@ -299,7 +299,7 @@ class AdministrateurController extends Controller
         $photoName = $filename.'_'.time().'.'.$extension;
  
         //Upload File to s3
-        $savePhoto = Storage::disk('s3')->put($photoName, fopen($request->file('cv'), 'r+'), 'public');
+        $savePhoto = Storage::disk('s3')->put($photoName, fopen($request->file('photo'), 'r+'), 'public');
         if ($savePhoto) {
             $activite = new GestionActivite;
             $activite->titre = $request->input('titre');
@@ -341,7 +341,7 @@ class AdministrateurController extends Controller
         $photoName = $filename.'_'.time().'.'.$extension;
  
         //Upload File to s3
-        $savePhoto = Storage::disk('s3')->put($photoName, fopen($request->file('cv'), 'r+'), 'public');
+        $savePhoto = Storage::disk('s3')->put($photoName, fopen($request->file('photo'), 'r+'), 'public');
         $data = array(
             'titre'=>$request->input('titre'),
             'photo'=>$photoName,
@@ -383,7 +383,7 @@ class AdministrateurController extends Controller
         $photoName = $filename.'_'.time().'.'.$extension;
  
         //Upload File to s3
-        $savePhoto = Storage::disk('s3')->put($photoName, fopen($request->file('cv'), 'r+'), 'public');
+        $savePhoto = Storage::disk('s3')->put($photoName, fopen($request->file('photo'), 'r+'), 'public');
         if ($savePhoto) {
             $astuce = new Astuce;
             $astuce->titre = $request->input('titre');
@@ -424,7 +424,7 @@ class AdministrateurController extends Controller
         $photoName = $filename.'_'.time().'.'.$extension;
  
         //Upload File to s3
-        $savePhoto = Storage::disk('s3')->put($photoName, fopen($request->file('cv'), 'r+'), 'public');
+        $savePhoto = Storage::disk('s3')->put($photoName, fopen($request->file('photo'), 'r+'), 'public');
         $data = array(
             'titre'=>$request->input('titre'),
             'photo'=>$photoName,
@@ -464,7 +464,7 @@ class AdministrateurController extends Controller
         $photoName = $filename.'_'.time().'.'.$extension;
  
         //Upload File to s3
-        $savePhoto = Storage::disk('s3')->put($photoName, fopen($request->file('cv'), 'r+'), 'public');
+        $savePhoto = Storage::disk('s3')->put($photoName, fopen($request->file('photo'), 'r+'), 'public');
         $mentor = new Mentor;
         $mentor->nom = $request->input('nom');
         $mentor->profession = $request->input('profession');
