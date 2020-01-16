@@ -7,19 +7,22 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Carbon\Carbon;
+use Auth;
 
 class RepliedToQuestion extends Notification
 {
     use Queueable;
+
+    protected $question;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($question)
     {
-        //
+        $this->question = $question;
     }
 
     /**
@@ -42,7 +45,8 @@ class RepliedToQuestion extends Notification
     public function toDatabase($notifiable)
     {
         return [
-            'repliedTime'=>Carbon::now()
+            'question'=>$this->question,
+            'user'=>Auth::user()
         ];
     }
 

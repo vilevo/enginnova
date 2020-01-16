@@ -119,14 +119,14 @@
               </ul>
             </li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Formations <span class="fa fa-angle-down"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book"></i> Formations <span class="fa fa-angle-down"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="#">Learn 2 code from scratch</a></li>
                 <li><a href="#">Learning program pro</a></li>
               </ul>
             </li>         
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">communauté ELP <span class="fa fa-angle-down"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users"></i> communauté ELP <span class="fa fa-angle-down"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="{{ url('user/enginnova-community') }}">Enginnova community</a></li>                
                 <li><a href="{{ url('user/freelance') }}">freelance</a></li>                

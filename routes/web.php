@@ -15,7 +15,7 @@
 root pour les utilisateurs
 */
 
-Route::get('VerifyEmailFirst','Auth\RegisterController@VerifyEmailFirst')->name('VerifyEmailFirst');
+Route::get('/user/activation/{token}','Auth\RegisterController@userActivation')->name('userActivation');
 Route::get('/', 'VisiteurController@index')->name('acceuil');
 Route::get('acceuil', 'VisiteurController@index')->name('acceuil');
 Route::get('learn-to-code-from-scratch', 'LearnscratchController@index')->name('learn2CodeFromScratch');
@@ -95,6 +95,12 @@ Route::get('user/freelance', 'FreelanceController@index')->name('user.freelance'
 Route::get('user/freelance-projet/{id}', 'FreelanceController@show')->where('id','[0-9]+');
 Route::get('user/add-projet', 'HomeController@add_projet')->name('addProjet');
 Route::get('user/question/{id}', 'PostController@show')->where('id','[0-9]+');
+Route::get('user/notification/question/{id}', function($id){
+	foreach (Auth::user()->notifications as $notification) {
+			$notification->markAsRead();
+			return redirect('user/question/'.$id);
+	}
+});
 Route::get('user/edit-projet/{id}', 'FreelanceController@edit')->where('id','[0-9]+');
 Route::get('user/deleteProjet/{id}', 'FreelanceController@destroy')->where('id','[0-9]+');
 Route::get('user/profil/{id}', 'UserController@show')->name('user.profil');

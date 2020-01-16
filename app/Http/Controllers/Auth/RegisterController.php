@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Str;
 
+use DB;
+use Mail;
+use Illuminate\Http\Request;
+
 class RegisterController extends Controller
 {
     /*
@@ -72,8 +76,39 @@ class RegisterController extends Controller
         ]);
     }
 
-    public function VerifyEmailFirst()
+    public function register(Request $request)
     {
-        return view('email.verify_email_first');
+        $input = $request->all();
+        $validator = $this->validator($input);
+
+        if ($validator->passes()) {
+            $user = $this->create($input)->toArray();
+            $user['link'] = str_random(30);
+
+            DB::table('verify_users')->insert(['user_id' => $user['id'], 'token' => $user['link']]);
+            Mail::send('email.activation', $user, function($message) use ($user) {
+                $message->to($user['email']);
+                $message->subject('message activation');
+            });
+            return redirect()->to('login')->with('info', 'we sent an email');
+        }
+        return back()->with('Error', $validator->errors());
     }
+
+    public function userActivation($token)
+    {
+        $check = DB::table('verify_users')->where('token', $token)->first();
+        if (is_null($check)) {
+            $user = User::find($check->user_id);
+            if ($user->status == 1) {
+                 return redirect()->to('login')->with('info', 'user deja active');
+            }
+            $user->update(['status' => TRUE]);
+        DB::table('status')->where('token',$token)->delete();
+        return redirect()->to('login')->with('info','user active youpi');
+        }
+        return redirect()->to('login')->with('info','token invalid');
+        
+    }
+
 }

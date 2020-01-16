@@ -68,9 +68,11 @@ class CommentaireController extends Controller
       $commentaires->count_vote = 0;
    		if ($commentaires->save()) {
         //notification
-        Auth::user()->notify(new RepliedToQuestion($commentaires));
-        //mettre a jour la table post avec comme parametre count_commentaires
         $x = $request->input('x');
+        $question = Post::where('id_post',$x)->first();
+        $user_notifiable = User::find($question->id_user);
+        $user_notifiable->notify(new RepliedToQuestion($question));
+        //mettre a jour la table post avec comme parametre count_commentaires
         $cc = Post::select('counts_commentaires')
           ->where('id_post',$x)
           ->get()->first();

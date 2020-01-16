@@ -21,6 +21,12 @@
             <div class="panel panel-default">
                 <div class="panel-heading" style="background-color: #337AB7; color: white;"><b>Inscription</b></div>
                 <div class="panel-body">
+                    @if (session('info'))
+                            <h5>
+                            <div class="alert alert-success">
+                              {{ session('info') }}
+                            </div></h5>
+                          @endif
                     <form action="{{ route('register') }}" method="POST">
                         {{ csrf_field() }}
                           <div class="form-group has-feedback {{ $errors->has('name') ? ' has-error' : '' }}">
