@@ -140,7 +140,7 @@
                                 <a href='{{ url("user/profil/{$idline}") }}'>{{$user->name}}</a> <br><hr>
                               @endif
                             @endforeach
-                            <a href="#">Voir tous les utilisateurs en lignes</a>
+                            <a href="#">Voir les utilisateurs en lignes</a>
                           @endif
                         </ul>
                       </div>
