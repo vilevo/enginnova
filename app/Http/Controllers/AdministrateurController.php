@@ -285,8 +285,20 @@ class AdministrateurController extends Controller
             'contenu'=>'required'
         ]);
 
-        $photoName = time().'.'.$request->photo->getClientOriginalExtension();
-        $savePhoto = $request->photo->move(public_path('posts'), $photoName);
+        //get filename with extension
+        $filenamewithextension = $request->file('photo')->getClientOriginalName();
+ 
+        //get filename without extension
+        $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+ 
+        //get file extension
+        $extension = $request->file('photo')->getClientOriginalExtension();
+ 
+        //filename to store
+        $photoName = $filename.'_'.time().'.'.$extension;
+ 
+        //Upload File to s3
+        $savePhoto = Storage::disk('s3')->put($photoName, fopen($request->file('cv'), 'r+'), 'public');
         if ($savePhoto) {
             $activite = new GestionActivite;
             $activite->titre = $request->input('titre');
@@ -315,8 +327,20 @@ class AdministrateurController extends Controller
             'contenu'=>'required'
         ]);
 
-        $photoName = time().'.'.$request->photo->getClientOriginalExtension();
-        $savePhoto = $request->photo->move(public_path('posts'), $photoName);
+        //get filename with extension
+        $filenamewithextension = $request->file('photo')->getClientOriginalName();
+ 
+        //get filename without extension
+        $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+ 
+        //get file extension
+        $extension = $request->file('photo')->getClientOriginalExtension();
+ 
+        //filename to store
+        $photoName = $filename.'_'.time().'.'.$extension;
+ 
+        //Upload File to s3
+        $savePhoto = Storage::disk('s3')->put($photoName, fopen($request->file('cv'), 'r+'), 'public');
         $data = array(
             'titre'=>$request->input('titre'),
             'photo'=>$photoName,
@@ -345,8 +369,20 @@ class AdministrateurController extends Controller
             'contenu'=>'required'
         ]);
 
-        $photoName = time().'.'.$request->photo->getClientOriginalExtension();
-        $savePhoto = $request->photo->move(public_path('posts'), $photoName);
+        //get filename with extension
+        $filenamewithextension = $request->file('photo')->getClientOriginalName();
+ 
+        //get filename without extension
+        $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+ 
+        //get file extension
+        $extension = $request->file('photo')->getClientOriginalExtension();
+ 
+        //filename to store
+        $photoName = $filename.'_'.time().'.'.$extension;
+ 
+        //Upload File to s3
+        $savePhoto = Storage::disk('s3')->put($photoName, fopen($request->file('cv'), 'r+'), 'public');
         if ($savePhoto) {
             $astuce = new Astuce;
             $astuce->titre = $request->input('titre');
@@ -374,8 +410,20 @@ class AdministrateurController extends Controller
             'contenu'=>'required'
         ]);
 
-        $photoName = time().'.'.$request->photo->getClientOriginalExtension();
-        $savePhoto = $request->photo->move(public_path('posts'), $photoName);
+        //get filename with extension
+        $filenamewithextension = $request->file('photo')->getClientOriginalName();
+ 
+        //get filename without extension
+        $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+ 
+        //get file extension
+        $extension = $request->file('photo')->getClientOriginalExtension();
+ 
+        //filename to store
+        $photoName = $filename.'_'.time().'.'.$extension;
+ 
+        //Upload File to s3
+        $savePhoto = Storage::disk('s3')->put($photoName, fopen($request->file('cv'), 'r+'), 'public');
         $data = array(
             'titre'=>$request->input('titre'),
             'photo'=>$photoName,
@@ -402,8 +450,20 @@ class AdministrateurController extends Controller
             'about'=>'required'
         ]);
 
-        $photoName = time().'.'.$request->photo->getClientOriginalExtension();
-        $savePhoto = $request->photo->move(public_path('avatars'), $photoName);
+        //get filename with extension
+        $filenamewithextension = $request->file('photo')->getClientOriginalName();
+ 
+        //get filename without extension
+        $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+ 
+        //get file extension
+        $extension = $request->file('photo')->getClientOriginalExtension();
+ 
+        //filename to store
+        $photoName = $filename.'_'.time().'.'.$extension;
+ 
+        //Upload File to s3
+        $savePhoto = Storage::disk('s3')->put($photoName, fopen($request->file('cv'), 'r+'), 'public');
         $mentor = new Mentor;
         $mentor->nom = $request->input('nom');
         $mentor->profession = $request->input('profession');

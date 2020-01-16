@@ -24,8 +24,21 @@ class CvController extends Controller
             'cv'=> 'required|image|mimes:jpeg,png,jpg|dimensions:min_width=100,min_height=100|max:2048'
         ]);
         $user_id = $id/1000;
-        $cvName = time().'.'.$request->cv->getClientOriginalExtension();
-        $saveCv = $request->cv->move(public_path('cv'), $cvName);
+        $user_id = Auth::user()->id;
+        //get filename with extension
+        $filenamewithextension = $request->file('cv')->getClientOriginalName();
+ 
+        //get filename without extension
+        $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+ 
+        //get file extension
+        $extension = $request->file('cv')->getClientOriginalExtension();
+ 
+        //filename to store
+        $cvName = $filename.'_'.time().'.'.$extension;
+ 
+        //Upload File to s3
+        $saveCv = Storage::disk('s3')->put($cvName, fopen($request->file('cv'), 'r+'), 'public');
         if ($saveCv) {
             $check_cv = Cv::select('id_cv')->where('id_user',$user_id)->count();
             if ($check_cv == 1) {
