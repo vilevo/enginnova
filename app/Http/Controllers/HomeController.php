@@ -49,7 +49,7 @@ class HomeController extends Controller
                                         ->where('valider',false)
                                         ->count();
         $categories = Categorie::all();
-        $users = User::all();
+        $users = User::paginate(6);
         if ($check_cv == 0) {
             $notif_cv = "Veuillez mettre en ligne votre CV pour pouvoir postuler aux projets freelance.";
             $user_id = $user_id;

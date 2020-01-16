@@ -261,7 +261,8 @@
                           @if(Auth::check())
                             @foreach($users as $user)
                               @if($user->isOnline())
-                                {{$user->name}} <br><hr>
+                                <?php $idline = $user->id*1000; ?>
+                                <a href='{{ url("user/profil/{$idline}") }}'>{{$user->name}}</a> <br><hr>
                               @endif
                             @endforeach
                           @endif
