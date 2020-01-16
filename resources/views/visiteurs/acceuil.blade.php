@@ -89,7 +89,7 @@
               <div class="col-lg-6 col-md-6">
                 <div class="mu-about-us-right">
                 <a id="mu-abtus-video" href="https://www.youtube.com/embed/BurO7YRxDhk" target="mutube-video">
-                  
+                  <img src='{{asset("elp_files/assets/img/degrad.png")}}' alt="img">
                 </a>
                 </div>
               </div>
