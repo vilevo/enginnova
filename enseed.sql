@@ -1,2 +1,4 @@
-INSERT INTO role_user (role_id,user_id)
-	VALUES ('1','1');
+INSERT INTO gestion_slides (id,titre_1,titre_2,contenu,image,created_at, updated_at)
+	VALUES ('1','Bienvenu sur Enginnova Community','Formations de haut niveau','Enginnova Learning Program est un programme de formation a travers des cours certifiants et pour accroitre le nombre de technologues et fabriquer des ingenieurs et developpeurs innovants','slider1.JPG','2019-10-07 13:32:28','2019-10-08 09:40:37'),
+		   ('2','Devenez freelance','Projets freelance et benevolat','Eh oui avec enginnova vous pouvez gagner de largent en ligne en participant aux projets freelance. Et si vous navez pas les moyens pour lancer vos projets vous avez la possiblité de publier des projet benevolat.','slider1.JPG','2019-10-07 13:32:28','2019-10-08 09:40:37'),
+		   ('3','Partagez vos connaissances','Enginnova community','Elargissez et partagez vos connaissances! peu importe le domaine, publiez votre question sur la plateforme et vous aurez des réponses satisfaisantes venant des membres de enginnova community. Plus vous repondez plus vous gagnez!','slider1.JPG','2019-10-07 13:32:28','2019-10-08 09:40:37');
