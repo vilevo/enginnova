@@ -12,7 +12,7 @@
         <div class="mu-slider-single">
           <div class="mu-slider-img">
             <figure>
-              <img src='{{asset("elp_files/assets/img/slider/slider1.jpg")}}'  alt="img">
+              <img src="https://enginnova.s3-us-west-2.amazonaws.com/elpfiles/slider1.JPG"  alt="img">
             </figure>
           </div>
           <div class="mu-slider-content">
@@ -28,7 +28,7 @@
         <div class="mu-slider-single">
           <div class="mu-slider-img">
             <figure>
-              <img src='{{asset("elp_files/assets/img/slider/slider1.jpg")}}'  alt="img">
+              <img src="https://enginnova.s3-us-west-2.amazonaws.com/elpfiles/slider1.JPG"  alt="img">
             </figure>
           </div>
           <div class="mu-slider-content">
@@ -44,7 +44,7 @@
         <div class="mu-slider-single">
           <div class="mu-slider-img">
             <figure>
-              <img src='{{asset("elp_files/assets/img/slider/slider1.jpg")}}'  alt="img">
+              <img src="https://enginnova.s3-us-west-2.amazonaws.com/elpfiles/slider1.JPG"  alt="img">
             </figure>
           </div>
           <div class="mu-slider-content">
