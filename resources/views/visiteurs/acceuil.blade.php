@@ -14,14 +14,14 @@
         <div class="mu-slider-single">
           <div class="mu-slider-img">
             <figure>
-              <img src="https://enginnova.s3-us-west-2.amazonaws.com/elpfiles/<?php echo $slide->image; ?>"  alt="img">
+              <img src="https://enginnova.s3-us-west-2.amazonaws.com/elpfiles/<?php echo $slide->image; ?>" class="img-responsive" alt="img">
             </figure>
           </div>
           <div class="mu-slider-content">
             <h4>{{ $slide->titre_1 }}</h4>
             <span></span>
             <h2>{{ $slide->titre_2 }}</h2>
-            <p>{{ $slide->contenu }}</p>
+            <p><?php echo  $slide->contenu; ?></p>
             <a href="{{ route('register') }}" class="mu-read-more-btn">S'inscrire</a>
           </div>
         </div>
