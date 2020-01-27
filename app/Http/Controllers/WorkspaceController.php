@@ -67,7 +67,7 @@ class WorkspaceController extends Controller
     									'users.avatar'
     								)
     								->where('id_chat',$teamchat->id)
-    								->orderBy('Teamchat_Msgs.id','asc')
+    								->orderBy('teamchat_msgs.id','asc')
     								->paginate(10);
     		}
     		$check_user = FreelanceProjet::select('id_fprojet')->where('id_fprojet',$idp)->count();
