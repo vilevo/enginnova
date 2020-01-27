@@ -77,10 +77,10 @@
                     <h2>A Propos</h2>
                   </div>
                   <!-- End Title -->
-                  <p>Enginnova Community est un réseau de jeune entrepreneurs togolais dont l'objectif est d'accoitre le developpement numérique du togo à partir de formations, réseautage et des projets freelance</p>
+                  <p>Enginnova Community est un réseau de jeunes entrepreneurs togolais dont l'objectif est d'accoitre le developpement numérique du togo à partir de formations, réseautage et des projets freelance</p>
                   <ul>
-                    <li> Permettre aux plus grands nombre de talents de se former et de se perfectionner.</li>
-                    <li> Préparer le cadre transitoire dynamique aux entreprises surtout œuvrant dans les secteurs du numérique à mieux embrasser les nouvelles technologies d’actualité ou du futur afin de mieux se positionner sur le marché.</li>
+                    <li> Permettre au plus grand nombre de talents de se former et de se perfectionner.</li>
+                    <li> Préparer le cadre transitoire dynamique aux entreprises surtout œuvrant dans les secteurs du numérique à mieux embrasser les nouvelles technologies d’actualité ou du futur afin de mieux se positionner dans leurs secteurs respectifs.</li>
                     <li> Offrir des opportunités d’innovations aux entreprises en formant leurs personnels aux technologies de pointe : Intelligence Artificielle, l’IOT, Réalité Virtuelle et Augmentée ,qui sont des outils moteurs de croissance et d’innovation pour les entreprises et startups.</li>
                     <li>Offrir un apprentissage concret aux techniques récentes.</li>
                   </ul>
@@ -171,15 +171,15 @@
                   <div class="mu-single-feature">
                     <span class="fa fa-users"></span>
                     <h4>Environnement</h4>
-                    <p>Vivre l’expérience start-up! l’environnement de Enginnova offrent des opportunités de rencontres et d’échanges qui permettent d’élargir son réseau et de stimuler la créativité.</p>
+                    <p>Vivre l’expérience start-up! l’environnement de Enginnova offre des opportunités de rencontres et d’échanges qui permettent d’élargir son réseau et de stimuler la créativité.</p>
                     <a href="#">Read More</a>
                   </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
                   <div class="mu-single-feature">
                     <span class="fa fa-users"></span>
-                    <h4>Prof expérimantés</h4>
-                    <p>Formation assurée par des développeurs et consultants experts dans leurs domaines, offrant un apprentissage concret aux techniques récentes.</p>
+                    <h4>Profs expérimentés</h4>
+                    <p>Formation assurée par des développeurs experts dans leurs domaines respectifs, offrant un apprentissage concret aux techniques récentes.</p>
                     <a href="#">Read More</a>
                   </div>
                 </div>
@@ -187,7 +187,7 @@
                   <div class="mu-single-feature">
                     <span class="fa fa-history"></span>
                     <h4>La formation</h4>
-                    <p>Les formations ont une duré de 80 heures (21 jours). Les 3 dernières semaines de formation sont allouées à la réalisation d’un projet réel pour booster l'apprentissage.</p>
+                    <p>Les formations ont une durée de 80 heures (21 jours). Les 3 dernières semaines de formation sont allouées à la réalisation d’un projet réel pour booster l'apprentissage.</p>
                     <a href="#">Read More</a>
                   </div>
                 </div>
@@ -195,7 +195,7 @@
                   <div class="mu-single-feature">
                     <span class="fa fa-laptop"></span>
                     <h4>Projets freelance</h4>
-                    <p>Il est possible de mettre en ligne vos projets enfin de trouvez une main d'oeuvre compétente de bonne qualité sur notre plateforme pour les réalisés.</p>
+                    <p>Il est possible de mettre en ligne vos projets afin de trouver une main d'oeuvre compétente de bonne qualité sur notre plateforme pour les réaliser.</p>
                     <a href="#">Read More</a>
                   </div>
                 </div>
@@ -203,7 +203,7 @@
                   <div class="mu-single-feature">
                     <span class="fa fa-laptop"></span>
                     <h4>Projets benevolats</h4>
-                    <p>Vous avez la possiblité de mettre en ligne des projets benevolats au cas vous n'auriez pas les ressources neccessaires pour débuter votre projet.</p>
+                    <p>Vous avez la possiblité de mettre en ligne des projets benevolats au cas où vous n'auriez pas les ressources neccessaires pour débuter votre projet.</p>
                     <a href="#">Read More</a>
                   </div>
                 </div>
@@ -211,7 +211,7 @@
                   <div class="mu-single-feature">
                     <span class="fa fa-users"></span>
                     <h4>Enginnova community</h4>
-                    <p>Vous avez une inquiétude? peu importe le domaine, publiez votre question sur la plateforme et vous aurez des réponses satisfaisantes.</p>
+                    <p>Vous avez une inquiétude? Peu importe le domaine, publiez votre question sur la plateforme et vous aurez des réponses satisfaisantes.</p>
                     <a href="#">Read More</a>
                   </div>
                 </div>
