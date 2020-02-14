@@ -252,7 +252,7 @@
                       </figure>
                       <div class="mu-latest-course-single-content">
                         <h4><a href="#">{{$activite->titre}}</a></h4>
-                        <p><?php echo substr($activite->contenu, 0,200); ?>...</p>
+                        <p></p>
                         <div class="mu-latest-course-single-contbottom">
                           <!-- <a class="mu-course-details" href="#">Details</a> -->
                           <a href='{{ url("lire-activite/{$activite->id}") }}'><span class="mu-course-price">Lire <i class="fa fa-eye"></i></span></a>
