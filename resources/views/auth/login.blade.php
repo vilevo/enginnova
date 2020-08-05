@@ -74,7 +74,7 @@
                     <!-- /.social-auth-links -->
 
                     <a href="{{ route('password.request') }}">Mot de passe oublié</a><br>
-                    <a href="{{ route('register') }}" class="text-center">Crée un compte</a>
+                    <a href="{{ route('register') }}" class="text-center">Créer un compte</a>
 
                   </div>
                   <!-- /.login-box-body -->

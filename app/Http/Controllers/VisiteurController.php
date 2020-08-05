@@ -442,4 +442,10 @@ class VisiteurController extends Controller
     {
       return view('visiteurs.term_of_use');
     }
+    
+    public function a_propos()
+    {
+      return view('visiteurs.a_propos');
+    }
+    
 }

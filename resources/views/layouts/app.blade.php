@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="Enginnova Learning Program, ELP, apprendre à programmé, togo start up, communauté de developpeur, enginnova, gagner de l'argent en ligne">
-    <meta name="description" content="Enginnova Community est un réseau de jeune entrepreneurs togolais dont l'objectif est d'accoitre le developpement numérique du togo à partir des formations, réseautages et des projets freelance.">    
+    <meta name="description" content="Social Enginnova grace à ELP (Enginnova Learning Program) vous offres des cours en ligne et physique dans le domaine du numérique et entrepreneurail. Nous vous offrons aussi la possibilité de travailler sur des projets freelance et de partager vos connaissances avec notre communauté.">    
     <title>@yield('titre')</title>
     <!-- Favicon -->
     <link rel="shortcut icon" href='{{asset("elp_files/assets/img/enginnova.ico")}}' type="image/x-icon"  />
@@ -61,11 +61,11 @@
                 <div class="mu-header-top-left">
                   <div class="mu-top-email">
                     <i class="fa fa-envelope"></i>
-                    <span>contact@enginnova.org</span>
+                    <span>contact@enginnova.co</span>
                   </div>
                   <div class="mu-top-phone">
                     <i class="fa fa-phone"></i>
-                    <span>(568) 986 652</span>
+                    <span>+228 92991111</span>
                   </div>
                 </div>
               </div>
@@ -73,11 +73,11 @@
                 <div class="mu-header-top-right">
                   <nav>
                     <ul class="mu-top-social-nav">
-                      <li><a href="#"><span class="fa fa-facebook"></span></a></li>
-                      <li><a href="#"><span class="fa fa-twitter"></span></a></li>
-                      <li><a href="#"><span class="fa fa-google-plus"></span></a></li>
-                      <li><a href="#"><span class="fa fa-linkedin"></span></a></li>
-                      <li><a href="#"><span class="fa fa-youtube"></span></a></li>
+                      <li><a href="https://m.facebook.com/enginnovaofficial/"><span class="fa fa-facebook"></span></a></li>
+                      <li><a href="https://twitter.com/enginnova_org"><span class="fa fa-twitter"></span></a></li>
+                      <li><a href="https://www.instagram.com/enginnova/"><span class="fa fa-instagram"></span></a></li>
+                      <li><a href="https://fr.linkedin.com/company/enginnova"><span class="fa fa-linkedin"></span></a></li>
+                      <li><a href="https://m.youtube.com/channel/UCTw67X7GRnOqivZgYCjDS8Q"><span class="fa fa-youtube"></span></a></li>
                     </ul>
                   </nav>
                 </div>
@@ -109,6 +109,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
+            <li class="active"><a href="{{ url('user/home') }}"><i class="fa fa-home"></i> Home</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe"></i> Notifications <span class="label label-danger">{{count(Auth::user()->unreadNotifications)}}</span></a>
               <ul class="dropdown-menu" role="menu">
@@ -118,13 +119,13 @@
                 
               </ul>
             </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book"></i> Formations <span class="fa fa-angle-down"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Learn 2 code from scratch</a></li>
-                <li><a href="#">Learning program pro</a></li>
-              </ul>
-            </li>         
+            <!--<li class="dropdown">-->
+            <!--  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book"></i> Formations <span class="fa fa-angle-down"></span></a>-->
+            <!--  <ul class="dropdown-menu" role="menu">-->
+            <!--    <li><a href="#">Learn 2 code from scratch</a></li>-->
+            <!--    <li><a href="#">Learning program pro</a></li>-->
+            <!--  </ul>-->
+            <!--</li>         -->
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users"></i> communauté ELP <span class="fa fa-angle-down"></span></a>
               <ul class="dropdown-menu" role="menu">
@@ -239,8 +240,8 @@
                 <address>
                   <p>Lomé, TOGO</p>
                   <p>Phone: +228 92991111 </p>
-                  <p>Website: www.enginnova.org</p>
-                  <p>Email: contact@enginnova.org</p>
+                  <p>Website: www.social.enginnova.co</p>
+                  <p>Email: contact@enginnova.co</p>
                 </address>
               </div>
             </div>
@@ -303,7 +304,7 @@
               var observation = $("[name='observation']:checked").val();
               event.preventDefault();
               $.ajax({
-                  url:"http://enginnova.herokuapp.com/user/noter-participant",
+                  url:"https://www.social.enginnova.co/user/noter-participant",
                   method:"POST",
                   data:{observation:observation, id:id, idw:idw, _token:_token},
                   success:function(data){
@@ -344,7 +345,7 @@
               if (query != '') {
                   var _token = $('input[name="_token"]').val();
                   $.ajax({
-                    url:"http://enginnova.herokuapp.com/user/fetch",
+                    url:"https://www.social.enginnova.co/user/fetch",
                     method:"POST",
                     data:{query:query, _token:_token},
                     success:function(data){

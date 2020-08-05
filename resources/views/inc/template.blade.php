@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="Enginnova Learning Program, ELP, apprendre à programmé, togo start up, communauté de developpeur, enginnova, gagner de l'argent en ligne">
-    <meta name="description" content="Enginnova Community est un réseau de jeune entrepreneurs togolais dont l'objectif est d'accoitre le developpement numérique du togo à partir des formations, réseautages et des projets freelance.">    
+    <meta name="description" content="Social Enginnova grace à ELP (Enginnova Learning Program) vous offres des cours en ligne et physique dans le domaine du numérique et entrepreneurail. Nous vous offrons aussi la possibilité de travailler sur des projets freelance et de partager vos connaissances avec notre communauté.">
+    <meta property="og:image" content="s3://enginnova/elpfiles/eng_logo.jpg">
     <title>@yield('titre')</title>
 
     <!-- Favicon -->
@@ -59,7 +60,7 @@
                 <div class="mu-header-top-left">
                   <div class="mu-top-email">
                     <i class="fa fa-envelope"></i>
-                    <span>contact@enginnova.org</span>
+                    <span>contact@enginnova.co</span>
                   </div>
                   <div class="mu-top-phone">
                     <i class="fa fa-phone"></i>
@@ -71,11 +72,11 @@
                 <div class="mu-header-top-right">
                   <nav>
                     <ul class="mu-top-social-nav">
-                      <li><a href="#"><span class="fa fa-facebook"></span></a></li>
-                      <li><a href="#"><span class="fa fa-twitter"></span></a></li>
-                      <li><a href="#"><span class="fa fa-google-plus"></span></a></li>
-                      <li><a href="#"><span class="fa fa-linkedin"></span></a></li>
-                      <li><a href="#"><span class="fa fa-youtube"></span></a></li>
+                      <li><a href="https://m.facebook.com/enginnovaofficial/"><span class="fa fa-facebook"></span></a></li>
+                      <li><a href="https://twitter.com/enginnova_org"><span class="fa fa-twitter"></span></a></li>
+                      <li><a href="https://www.instagram.com/enginnova/"><span class="fa fa-instagram"></span></a></li>
+                      <li><a href="https://fr.linkedin.com/company/enginnova"><span class="fa fa-linkedin"></span></a></li>
+                      <li><a href="https://m.youtube.com/channel/UCTw67X7GRnOqivZgYCjDS8Q"><span class="fa fa-youtube"></span></a></li>
                     </ul>
                   </nav>
                 </div>
@@ -107,7 +108,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-            <li class="active"><a href="{{ url('acceuil') }}"><i class="fa fa-home"></i> Home</a></li>
+            <li class="active"><a href="{{ url('acceuil') }}"><i class="fa fa-home"></i> Acceuil</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book"></i> Formations<span class="fa fa-angle-down"></span></a>
               <ul class="dropdown-menu" role="menu">
@@ -124,7 +125,7 @@
             </li>
             <li><a href="{{ route('login') }}"><span class="label label-primary"><i class="fa fa-sign-in"></i> Connexion</span></a></li>
             <!-- <li><a href="{{ route('register') }}">S'inscrire</a></li> -->            
-            <li><a href="{{ url('contact') }}"><i class="fa fa-phone"></i> Contact</a></li>
+            <!--<li><a href="{{ url('contact') }}"><i class="fa fa-phone"></i> Contact</a></li>-->
           </ul>                     
         </div><!--/.nav-collapse -->        
       </div>     
@@ -195,8 +196,8 @@
                 <address>
                   <p>Lomé, TOGO</p>
                   <p>Phone: +228 92991111 </p>
-                  <p>Website: www.enginnova.org</p>
-                  <p>Email: contact@enginnova.org</p>
+                  <p>Website: www.social.enginnova.co</p>
+                  <p>Email: contact@enginnova.co</p>
                 </address>
               </div>
             </div>
@@ -250,7 +251,7 @@
               if (query != '') {
                   var _token = $('input[name="_token"]').val();
                   $.ajax({
-                    url:"http://enginnova.herokuapp.com/fetchQuestions",
+                    url:"https://www.social.enginnova.co/fetchQuestions",
                     method:"POST",
                     data:{query:query, _token:_token},
                     success:function(data){
@@ -268,7 +269,7 @@
               if (query != '') {
                   var _token = $('input[name="_token"]').val();
                   $.ajax({
-                    url:"http://enginnova.herokuapp.com/fetchUser",
+                    url:"https://www.social.enginnova.co/fetchUser",
                     method:"POST",
                     data:{query:query, _token:_token},
                     success:function(data){

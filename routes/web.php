@@ -31,6 +31,9 @@ Route::get('formation-inscription/{type}', 'VisiteurController@formationAdd');
 Route::get('lire-activite/{id}', 'VisiteurController@LireActivite')->where('id', '[0-9]+');
 Route::get('geeking/{id}', 'VisiteurController@geeking')->where('id', '[0-9]+');
 Route::get('conditions-generales', 'VisiteurController@conditions_generales');
+Route::get('a-propos', 'VisiteurController@a_propos');
+Route::get('api-posts', 'ApiController@api_enginnovaCommunity');
+Route::get('api-jobs', 'ApiController@api_freelance');
 //fetch route
 Route::get('/fetch-mentor/{id}', 'MentorController@fetchMentor')->where('id', '[0-9]+');
 Route::post('/fetchQuestions', 'VisiteurController@fetchQuestions')->name('fetchQuestions');

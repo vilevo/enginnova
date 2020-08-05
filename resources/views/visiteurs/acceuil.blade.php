@@ -1,7 +1,7 @@
 @extends('inc.index_template')
 
 @section('titre')
-	Enginnova Learning Program - acceuil
+	Social Enginnova - acceuil
 @endsection
 
 @section('layout_main_content')
@@ -77,13 +77,7 @@
                     <h2>A Propos</h2>
                   </div>
                   <!-- End Title -->
-                  <p>Enginnova Community est un réseau de jeunes entrepreneurs togolais dont l'objectif est d'accoitre le developpement numérique du togo à partir de formations, réseautage et des projets freelance</p>
-                  <ul>
-                    <li> Permettre au plus grand nombre de talents de se former et de se perfectionner.</li>
-                    <li> Préparer le cadre transitoire dynamique aux entreprises surtout œuvrant dans les secteurs du numérique à mieux embrasser les nouvelles technologies d’actualité ou du futur afin de mieux se positionner dans leurs secteurs respectifs.</li>
-                    <li> Offrir des opportunités d’innovations aux entreprises en formant leurs personnels aux technologies de pointe : Intelligence Artificielle, l’IOT, Réalité Virtuelle et Augmentée ,qui sont des outils moteurs de croissance et d’innovation pour les entreprises et startups.</li>
-                    <li>Offrir un apprentissage concret aux techniques récentes.</li>
-                  </ul>
+                  <p>Enginnova s’emploie à révolutionner le monde du travail et du recrutement en donnant la possibilité aux ingénieurs les plus talentueux de l'Afrique  de travailler à distance pour les entreprises des pays développés à la recherche des talents Tech. Nos services s'effectuent via une plateforme web sur laquelle les entreprises viennent recruter les talents et sur laquelle se déroulent les formations en lignes et Une application mobile qui sert de réseau social entre les membres de la communauté (enginnova community) pour travailler ensemble sur des projets.</p>
                 </div>
               </div>
               <div class="col-lg-6 col-md-6">
@@ -112,7 +106,7 @@
               <div class="col-lg-3 col-md-3 col-sm-3">
                 <div class="mu-abtus-counter-single">
                   <span class="fa fa-book"></span>
-                  <h4 class="counter">{{$questions}}</h4>
+                  <h4 class="counter"><?php echo 500 + $questions; ?></h4>
                   <p><a href="{{ url('enginnova-community') }}" style="color: white;">Questions</a></p>
                 </div>
               </div>
@@ -121,7 +115,7 @@
               <div class="col-lg-3 col-md-3 col-sm-3">
                 <div class="mu-abtus-counter-single">
                   <span class="fa fa-users"></span>
-                  <h4 class="counter">{{$users}}</h4>
+                  <h4 class="counter"><?php echo 2500 + $users; ?></h4>
                   <p><a href="{{ url('enginnova-users') }}" style="color: white;">Utilisateurs</a></p>
                 </div>
               </div>
@@ -130,7 +124,7 @@
               <div class="col-lg-3 col-md-3 col-sm-3">
                 <div class="mu-abtus-counter-single">
                   <span class="fa fa-sticky-note"></span>
-                  <h4 class="counter">{{$projets_freelances}}</h4>
+                  <h4 class="counter"><?php echo 150 + $projets_freelances; ?></h4>
                   <p><a href="{{ url('freelance') }}" style="color: white;">Projets</a></p>
                 </div>
               </div>
@@ -172,7 +166,7 @@
                     <span class="fa fa-users"></span>
                     <h4>Environnement</h4>
                     <p>Vivre l’expérience start-up! l’environnement de Enginnova offre des opportunités de rencontres et d’échanges qui permettent d’élargir son réseau et de stimuler la créativité.</p>
-                    <a href="#">Read More</a>
+                    
                   </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
@@ -180,7 +174,7 @@
                     <span class="fa fa-users"></span>
                     <h4>Profs expérimentés</h4>
                     <p>Formation assurée par des développeurs experts dans leurs domaines respectifs, offrant un apprentissage concret aux techniques récentes.</p>
-                    <a href="#">Read More</a>
+                    
                   </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
@@ -188,15 +182,15 @@
                     <span class="fa fa-history"></span>
                     <h4>La formation</h4>
                     <p>Les formations ont une durée de 80 heures (21 jours). Les 3 dernières semaines de formation sont allouées à la réalisation d’un projet réel pour booster l'apprentissage.</p>
-                    <a href="#">Read More</a>
+                    
                   </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
                   <div class="mu-single-feature">
                     <span class="fa fa-laptop"></span>
                     <h4>Projets freelance</h4>
-                    <p>Il est possible de mettre en ligne vos projets afin de trouver une main d'oeuvre compétente de bonne qualité sur notre plateforme pour les réaliser.</p>
-                    <a href="#">Read More</a>
+                    <p>Il est possible de mettre en ligne vos projets afin de trouver une main d'oeuvre compétente de bonne qualité sur notre plateforme pour les réalisés.</p>
+                    
                   </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
@@ -204,16 +198,19 @@
                     <span class="fa fa-laptop"></span>
                     <h4>Projets benevolats</h4>
                     <p>Vous avez la possiblité de mettre en ligne des projets benevolats au cas où vous n'auriez pas les ressources neccessaires pour débuter votre projet.</p>
-                    <a href="#">Read More</a>
+                    
                   </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
                   <div class="mu-single-feature">
                     <span class="fa fa-users"></span>
-                    <h4>Enginnova community</h4>
+                    <h4>Enginnova Community</h4>
                     <p>Vous avez une inquiétude? Peu importe le domaine, publiez votre question sur la plateforme et vous aurez des réponses satisfaisantes.</p>
-                    <a href="#">Read More</a>
+                    
                   </div>
+                </div>
+                <div class="mu-title">
+                    <a href="{{ url('a-propos') }}" class="btn btn-primary">En savoir plus</a>
                 </div>
               </div>
             </div>
@@ -255,7 +252,7 @@
                         <p></p>
                         <div class="mu-latest-course-single-contbottom">
                           <!-- <a class="mu-course-details" href="#">Details</a> -->
-                          <a href='{{ url("lire-activite/{$activite->id}") }}'><span class="mu-course-price">Lire <i class="fa fa-eye"></i></span></a>
+                          <a href='{{ url("lire-activite/{$activite->id}") }}'><span class="mu-course-price">Lire</span></a>
                         </div>
                       </div>
                     </div>
@@ -379,15 +376,15 @@
               <div class="mu-testimonial-item">
                 <div class="mu-testimonial-quote">
                   <blockquote>
-                    <p>grace à la formation de enginnova, j'ai pu developper mon aplication mobile en 3 jours.</p>
+                    <p>grace à la formation de enginnova, j'ai pu developper mon application mobile en 3 jours.</p>
                   </blockquote>
                 </div>
                 <div class="mu-testimonial-img">
-                  <img src="{{asset("elp_files/assets/img/testimonial-1.png")}}" alt="img">
+                  <img src="https://enginnova.s3-us-west-2.amazonaws.com/elpfiles/eng_logo.jpg" alt="img">
                 </div>
                 <div class="mu-testimonial-info">
-                  <h4>john doe</h4>
-                  <span>Etudiant entrepreneur</span>
+                  <h4>Boris Lodibert</h4>
+                  <span>CEO FarmerShop</span>
                 </div>
               </div>
               <!-- end testimonial single item -->
@@ -399,11 +396,11 @@
                   </blockquote>
                 </div>
                 <div class="mu-testimonial-img">
-                  <img src="{{asset("elp_files/assets/img/testimonial-3.png")}}" alt="img">
+                  <img src="https://enginnova.s3-us-west-2.amazonaws.com/elpfiles/eng_logo.jpg" alt="img">
                 </div>
                 <div class="mu-testimonial-info">
-                  <h4>Rebaca Michel</h4>
-                  <span>Entrepreneur</span>
+                  <h4>Sitsopé Sékpona</h4>
+                  <span>Entrepreneur Etudiant</span>
                 </div>
               </div>
               <!-- end testimonial single item -->
@@ -415,10 +412,10 @@
                   </blockquote>
                 </div>
                 <div class="mu-testimonial-img">
-                  <img src="{{asset("elp_files/assets/img/testimonial-2.png")}}" alt="img">
+                  <img src="https://enginnova.s3-us-west-2.amazonaws.com/elpfiles/eng_logo.jpg" alt="img">
                 </div>
                 <div class="mu-testimonial-info">
-                  <h4>Stev Smith</h4>
+                  <h4>Anonyme</h4>
                   <span>Etudiant</span>
                 </div>
               </div>

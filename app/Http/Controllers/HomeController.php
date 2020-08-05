@@ -81,7 +81,7 @@ class HomeController extends Controller
                                     'manifestations.selectionne',
                                     'manifestations.valider',
                                     'freelance_projets.id_fprojet',
-                                    'freelance_projets.titre_projet',
+                                    'freelance_projets.titre_projet'
                                 )
                                 ->where('manifestations.id_user',$user_id)
                                 ->where('manifestations.selectionne',true)
