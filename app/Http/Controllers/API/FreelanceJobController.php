@@ -18,7 +18,7 @@ class FreelanceJobController extends Controller
     $limit = $request->limit;
 
     $filter = DB::table('freelance_projets')
-      ->join('users', 'users.id', '=', 'posts.id_user')
+      ->join('users', 'users.id', '=', 'freelance_projets.id_user')
       ->select(
         'freelance_projets.id_fprojet',
         'freelance_projets.titre_projet',
