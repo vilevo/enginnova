@@ -20,3 +20,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('posts/search', "API\PostController@search");
 Route::post('api-jobs/search', "API\FreelanceJobController@search");
+
+Route::group(['middleware' => ['api_user']], function () {
+
+    //Create an user on this server
+    Route::post('users/sync', "API\UserController@create");
+
+
+});
