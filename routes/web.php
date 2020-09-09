@@ -155,3 +155,5 @@ Route::post('user/teamchat-add/{id}', 'TeamchatController@teamchatAdd')->where('
 Route::post('user/add-teamplanning/{id}', 'TeamplanningController@planningAdd')->where('id', '[0-9]+');
 Route::post('user/add-observation/{idu}/{idw}', 'ObservationController@create')->where(['idu', '[0-9]+'], ['idw', '[0-9]+']);
 Route::post('/user/noter-participant', 'ObservationController@update');
+
+

@@ -18,10 +18,19 @@ class activeUsers
      */
     public function handle($request, Closure $next)
     {
-         if (Auth::check()) {
+        $user = auth()->user();
+
+        if ($user == null) {
+            if (Auth::check()) {
+                $user = Auth::user();
+            }
+        }
+
+        if ($user != null) {
             $expireTime = Carbon::now()->addMinutes(1);
-            Cache::put('active-user' . Auth::user()->id, true, $expireTime);
-         }
+            Cache::put('active-user' . $user->id, true, $expireTime);
+        }
+
         return $next($request);
     }
 }

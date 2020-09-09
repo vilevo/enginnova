@@ -19,22 +19,23 @@ class LoginForeignUser
      */
     public function handle(Request $request, Closure $next)
     {
-        $token = $request->header('X-Foreign-Authorization');
-        if ($token == null) {
-            return response()->json([
-                'error' => "Foreign Authorization Token not found"
-            ], 401);
+        $token = $request->get('token');
+
+        // dd($token);
+
+        if ($token != null) {
+
+            $fuser = User::query()->where('public_token', $token)->get()->first();
+
+            if ($fuser == null) {
+                return response()->json([
+                    'error' => "Foreign Authorization Token expired"
+                ], 401);
+            }
+
+            Auth::loginUsingId($fuser->id, true);
         }
 
-        $fuser = User::query()->where('public_token', $token)->get()->first();
-
-        if ($fuser == null) {
-            return response()->json([
-                'error' => "Foreign Authorization Token expired"
-            ], 401);
-        }
-
-        Auth::loginUsingId($fuser->id);
 
         return $next($request);
     }

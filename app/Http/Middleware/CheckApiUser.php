@@ -21,7 +21,7 @@ class CheckApiUser
         $token = $request->header('X-Api-Authorization');
         if ($token == null) {
             return response()->json([
-                'error' => "Authorization Token not found"
+                'error' => "X-Api-Authorization Token not found"
             ], 401);
         }
 
@@ -29,7 +29,7 @@ class CheckApiUser
 
         if ($apiUser == null) {
             return response()->json([
-                'error' => "Authorization Token expired"
+                'error' => "X-Api-Authorization Token expired"
             ], 401);
         }
         
