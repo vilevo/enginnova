@@ -114,6 +114,7 @@ Route::get('user/notification/question/{id}', function ($id) {
 Route::get('user/edit-projet/{id}', 'FreelanceController@edit')->where('id', '[0-9]+');
 Route::get('user/deleteProjet/{id}', 'FreelanceController@destroy')->where('id', '[0-9]+');
 Route::get('user/profil/{id}', 'UserController@show')->name('user.profil');
+Route::get('user/profil/', 'UserController@showRedirect');
 Route::get('user/postuler-au-Projet/{id}', 'ParcoursController@postuler')->where('id', '[0-9]+');
 Route::get('user/supprime-candidature/{id}', 'ParcoursController@deleteCandidature')->where('id', '[0-9]+');
 Route::get('user/error', 'ErrorController@post_not_found');

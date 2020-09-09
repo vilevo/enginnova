@@ -33,7 +33,7 @@ class FreelanceJobController extends Controller
         'users.name',
         'users.avatar'
       )
-      ->where('titre_projet', "LIKE", $value)
+      ->where('titre_projet', "LIKE", "%". $value . "%")
       ->orderBy(DB::raw("(CASE WHEN titre_projet= '" . $value . "' THEN 1 WHEN titre_projet LIKE '" . $value . "%' THEN 2 ELSE 3 END)"))
       ->limit($limit)
       ->get();

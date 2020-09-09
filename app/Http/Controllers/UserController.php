@@ -18,7 +18,7 @@ use App\Observation;
 
 class UserController extends Controller
 {
-     /**
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -27,7 +27,7 @@ class UserController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -35,10 +35,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        $freelance_projets= DB::table('users')
-            ->orderBy('name','asc')
+        $freelance_projets = DB::table('users')
+            ->orderBy('name', 'asc')
             ->get();
-        return ['users'=>$users];
+        return ['users' => $users];
     }
 
     /**
@@ -49,53 +49,73 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-    	$this->validate($request,[
-    		'avatar'=> 'required|image|mimes:jpeg,png,jpg|dimensions:min_width=100,min_height=100|max:2048'
-    	]);
-    	$user_id = Auth::user()->id;
+        $this->validate($request, [
+            'avatar' => 'required|image|mimes:jpeg,png,jpg|dimensions:min_width=100,min_height=100|max:2048'
+        ]);
+        $user_id = Auth::user()->id;
         //get filename with extension
         $filenamewithextension = $request->file('avatar')->getClientOriginalName();
- 
+
         //get filename without extension
         $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
- 
+
         //get file extension
         $extension = $request->file('avatar')->getClientOriginalExtension();
- 
+
         //filename to store
-        $avatarName = $filename.'_'.time().'.'.$extension;
- 
+        $avatarName = $filename . '_' . time() . '.' . $extension;
+
         //Upload File to s3
         $saveAvatar = Storage::disk('s3')->put($avatarName, fopen($request->file('avatar'), 'r+'), 'public');
         if ($saveAvatar) {
             $check = User::select('avatar')->where('id', $user_id)->first();
             if ($check == "default.png") {
                 $data = array(
-                'avatar' => $avatarName
+                    'avatar' => $avatarName
                 );
-                 $data = User::where('id', $user_id)->update($data); 
-            }else{
+                $data = User::where('id', $user_id)->update($data);
+            } else {
                 // $path = asset("avatars/".$check);
                 // if (File::exists($path)) {
                 //     File::delete($path);
                 // }
                 $data = array(
-                'avatar' => $avatarName
+                    'avatar' => $avatarName
                 );
-                 $data = User::where('id', $user_id)->update($data); 
+                $data = User::where('id', $user_id)->update($data);
             }
-        	if ($data) {
-                $x = $user_id*1000;
-                return redirect('user/profil/'.$x)->with('info_avatar', 'Photo de profil modifiée avec succès!');
+            if ($data) {
+                $x = $user_id * 1000;
+                return redirect('user/profil/' . $x)->with('info_avatar', 'Photo de profil modifiée avec succès!');
             }
-        }else{
-        	return view('user.profil',
-    			[
-    			 'error' => true,
-    			 'message' => 'Oops une erreur s\'est produite , veuillez reessayer svp!' 
-    			]);
+        } else {
+            return view(
+                'user.profil',
+                [
+                    'error' => true,
+                    'message' => 'Oops une erreur s\'est produite , veuillez reessayer svp!'
+                ]
+            );
         }
     }
+
+
+    public function showRedirect(Request $request)
+    {
+       
+        // Voir le profil d'un autrre user redirect
+        $o = $request->get('show');
+        if ($o != null) {
+            $o = User::query()->where('public_token', $o->public_token)->get()->first();
+            return redirect("/user/profil/" . $o->id * 1000);
+        }
+
+        // Voir mon propre profil
+        $fuser = auth()->user();
+        return redirect("/user/profil/" . $fuser->id * 1000);
+    }
+
+
 
     /**
      * Display the specified resource.
@@ -105,88 +125,89 @@ class UserController extends Controller
      */
     public function show($id)
     {
-    	$id = $id/1000;
-    	$user = User::select('id')->where('id', $id)->count();
+        $id = $id / 1000;
+        $user = User::select('id')->where('id', $id)->count();
         $questions = "";
         $experiences = "";
         $nbr_projet_traite = 0;
-    	if ($user == 1) {
+        if ($user == 1) {
             $user = User::where('id', $id)->first();
             $check_note = Note::select('id_note')->where('id_receiver', $id)->count();
             if ($check_note > 0) {
                 $note = $check_note;
-            }else{
+            } else {
                 $note = 0;
             }
             $check_exp = Experience::select('id_experience')
-                                    ->where('id_user',$id)
-                                    ->where('selectionne',true)
-                                    ->count();
+                ->where('id_user', $id)
+                ->where('selectionne', true)
+                ->count();
             if ($check_exp > 0) {
-                $experiences= Experience::join('freelance_projets','freelance_projets.id_fprojet','=','experiences.id_fprojet')
-                ->join('observations','observations.id_observation','=','experiences.id_observation')
-                ->select(
-                    'experiences.id_experience',
-                    'experiences.id_user',
-                    'experiences.id_fprojet',
-                    'experiences.selectionne',
-                    'experiences.projet_traite',
-                    'experiences.id_observation',
-                    'experiences.created_at',
-                    'observations.name',
-                    'freelance_projets.id_fprojet',
-                    'freelance_projets.titre_projet',
-                    'freelance_projets.id_user',
-                    'freelance_projets.etat'
-                )
-                ->where('experiences.id_user',$id)
-                ->where('experiences.selectionne',true)
-                ->where('freelance_projets.etat',true)
-                ->orderBy('experiences.id_experience','desc')
-                ->get();
+                $experiences = Experience::join('freelance_projets', 'freelance_projets.id_fprojet', '=', 'experiences.id_fprojet')
+                    ->join('observations', 'observations.id_observation', '=', 'experiences.id_observation')
+                    ->select(
+                        'experiences.id_experience',
+                        'experiences.id_user',
+                        'experiences.id_fprojet',
+                        'experiences.selectionne',
+                        'experiences.projet_traite',
+                        'experiences.id_observation',
+                        'experiences.created_at',
+                        'observations.name',
+                        'freelance_projets.id_fprojet',
+                        'freelance_projets.titre_projet',
+                        'freelance_projets.id_user',
+                        'freelance_projets.etat'
+                    )
+                    ->where('experiences.id_user', $id)
+                    ->where('experiences.selectionne', true)
+                    ->where('freelance_projets.etat', true)
+                    ->orderBy('experiences.id_experience', 'desc')
+                    ->get();
 
                 $nbr_projet_traite = Experience::where('projet_traite', true)
-                                                ->where('id_user',$id)
-                                                ->count();
+                    ->where('id_user', $id)
+                    ->count();
             }
 
-            $check_cv = Cv::select('id_cv')->where('id_user',$id)->count();
+            $check_cv = Cv::select('id_cv')->where('id_user', $id)->count();
             if ($check_cv == 1) {
-                $cv = Cv::where('actif',true)
-                        ->where('id_user',$id)
-                        ->first();
-            }else{
-                $cv =false;
+                $cv = Cv::where('actif', true)
+                    ->where('id_user', $id)
+                    ->first();
+            } else {
+                $cv = false;
             }
             $professions = Profession::all();
             $categories = Categorie::all();
-            $check_questions = Post::select('id_post')->where('id_user',$id)->count();
-            if ($check_questions>0) {
-                $questions = Post::where('id_user',$id)->orderBy('id_post','desc')->paginate(2);
+            $check_questions = Post::select('id_post')->where('id_user', $id)->count();
+            if ($check_questions > 0) {
+                $questions = Post::where('id_user', $id)->orderBy('id_post', 'desc')->paginate(2);
             }
-                return view('user.profil', 
-                    [
-                     'error' => false,
-                     'user'=>$user,
-                     'note'=>$note,
-                     'experiences'=>$experiences,
-                     'questions'=>$questions,
-                     'cv'=>$cv,
-                     'nbr_projet_traite'=>$nbr_projet_traite,
-                     'point_total'=>$note+$nbr_projet_traite,
-                     'professions'=>$professions,
-                     'categories'=>$categories    
-                    ]);
-       		 
-    	}else{
-    		return view('user.error',
-    			[
-    			 'error' => true,
-    			 'message' => 'Cet utilisateur n\'existe pas! Veuillez reessayer SVP!'
-    			]);
-    	}
-
-
+            return view(
+                'user.profil',
+                [
+                    'error' => false,
+                    'user' => $user,
+                    'note' => $note,
+                    'experiences' => $experiences,
+                    'questions' => $questions,
+                    'cv' => $cv,
+                    'nbr_projet_traite' => $nbr_projet_traite,
+                    'point_total' => $note + $nbr_projet_traite,
+                    'professions' => $professions,
+                    'categories' => $categories
+                ]
+            );
+        } else {
+            return view(
+                'user.error',
+                [
+                    'error' => true,
+                    'message' => 'Cet utilisateur n\'existe pas! Veuillez reessayer SVP!'
+                ]
+            );
+        }
     }
 
 
@@ -199,43 +220,44 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-    	$id = $id/1000;
+        $id = $id / 1000;
         $this->validate($request, [
-   			 'name' => 'bail|required|min:5',
-   			 'email' => 'required',
-   			 'telephone' => 'required',
-             'profession' => 'required',
-   			 'competences' => 'required',
-   			 'ville' => 'required',
-   			 'adresse' => 'required',
-   			 'description' => 'required'
-   		]);
-   		$data = array(
-   			'name' => $request->input('name'),
-   			'email' => $request->input('email'),
-   			'telephone' => $request->input('telephone'),
+            'name' => 'bail|required|min:5',
+            'email' => 'required',
+            'telephone' => 'required',
+            'profession' => 'required',
+            'competences' => 'required',
+            'ville' => 'required',
+            'adresse' => 'required',
+            'description' => 'required'
+        ]);
+        $data = array(
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'telephone' => $request->input('telephone'),
             'profession' => $request->input('profession'),
             'competences' => $request->input('competences'),
             'ville' => $request->input('ville'),
             'adresse' => $request->input('adresse'),
             'description' => $request->input('description')
-   		);
-   		
-   		$check = User::select('id')->where('id', $id)->count();
-   		if ($check == 1) {
-   			$update = User::where('id', $id)->update($data);
+        );
+
+        $check = User::select('id')->where('id', $id)->count();
+        if ($check == 1) {
+            $update = User::where('id', $id)->update($data);
             if ($update) {
-                $x = $id*1000;
-                return redirect('user/profil/'.$x)->with('info', 'Vos infos perso ont été modifiée avec succès!');
+                $x = $id * 1000;
+                return redirect('user/profil/' . $x)->with('info', 'Vos infos perso ont été modifiée avec succès!');
             }
-   		}else{
-   			return view('user.error',
-    			[
-    			 'error' => true,
-    			 'message' => 'cet utilisateur n\'exsite pas'
-    			]);	
-   		}
-   		
+        } else {
+            return view(
+                'user.error',
+                [
+                    'error' => true,
+                    'message' => 'cet utilisateur n\'exsite pas'
+                ]
+            );
+        }
     }
 
     public function AdminFetchUser(Request $request)
@@ -243,23 +265,23 @@ class UserController extends Controller
         if ($request->get('query')) {
             $query = $request->get('query');
             $data = DB::table('users')
-                        ->where('name','LIKE','%'.$query.'%')
-                        ->get();
+                ->where('name', 'LIKE', '%' . $query . '%')
+                ->get();
             $output = '<ul class="dropdown-menu" style="display:block; position:relative;">';
             foreach ($data as $row) {
-                $output .= '<li><a href="http://localhost/ec/public/admin/edit-user/'.$row->id.'">'.$row->name.'</a></li>';
+                $output .= '<li><a href="http://localhost/ec/public/admin/edit-user/' . $row->id . '">' . $row->name . '</a></li>';
             }
-            $output .='</ul>';
+            $output .= '</ul>';
             echo $output;
         }
     }
 
-    public function admin_edit_user($id){
+    public function admin_edit_user($id)
+    {
         $user = User::select('id')->where('id', $id)->count();
-        if ($user==1) {
-            $user = User::where('id',$id)->first();
-            return view('admin.editUser',['user'=>$user]);
+        if ($user == 1) {
+            $user = User::where('id', $id)->first();
+            return view('admin.editUser', ['user' => $user]);
         }
     }
-
 }

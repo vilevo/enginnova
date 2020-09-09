@@ -21,8 +21,6 @@ class LoginForeignUser
     {
         $token = $request->get('token');
 
-        // dd($token);
-
         if ($token != null) {
 
             $fuser = User::query()->where('public_token', $token)->get()->first();
@@ -35,7 +33,6 @@ class LoginForeignUser
 
             Auth::loginUsingId($fuser->id, true);
         }
-
 
         return $next($request);
     }

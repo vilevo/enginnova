@@ -31,7 +31,7 @@ class PostController extends Controller
         'users.name',
         'users.avatar'
       )
-      ->where('titre_post', "LIKE", $value)
+      ->where('titre_post', "LIKE", "%". $value . "%")
       ->orderBy(DB::raw("(CASE WHEN titre_post= '" . $value . "' THEN 1 WHEN titre_post LIKE '" . $value . "%' THEN 2 ELSE 3 END)"))
       ->limit($limit)
       ->get();
