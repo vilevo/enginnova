@@ -113,6 +113,7 @@
                 <li><a href="{{ url('admin/new-activite') }}">Activités acceuil</a></li>
                 <li><a href="{{ url('admin/trucs-astuces') }}">Trucs et astuces</a></li>
                 <li><a href="{{ url('admin/gestion-mentor') }}">Gestion mentors</a></li>
+                <li><a href="{{ url('admin/api/users') }}">API Tokens</a></li>
               </ul>
             </li>           
             <li class="dropdown">
@@ -240,7 +241,7 @@
     <!-- end footer bottom -->
   </footer>
   <!-- End footer -->
-  
+  @stack('modals')
   <!-- jQuery library -->
   <script src='{{asset("elp_files/assets/js/jquery.min.js")}}'></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -303,5 +304,6 @@
   </script>
   @yield('footer')
   @yield('formulaire')
+  
   </body>
 </html>
